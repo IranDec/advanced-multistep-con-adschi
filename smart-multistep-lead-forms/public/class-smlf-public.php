@@ -1,0 +1,58 @@
+<?php
+
+class SMLF_Public {
+	private $plugin_name;
+	private $version;
+
+	public function __construct( $plugin_name, $version ) {
+		$this->plugin_name = $plugin_name;
+		$this->version = $version;
+	}
+
+	public function enqueue_styles() {
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/smlf-public.css', array(), $this->version, 'all' );
+
+		if ( is_rtl() ) {
+			wp_enqueue_style( $this->plugin_name . '-rtl', plugin_dir_url( __FILE__ ) . 'css/smlf-public-rtl.css', array(), $this->version, 'all' );
+		}
+	}
+
+	public function enqueue_scripts() {
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/smlf-public.js', array( 'jquery' ), $this->version, true );
+
+		wp_localize_script( $this->plugin_name, 'smlf_public_obj', array(
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'nonce'    => wp_create_nonce( 'smlf_public_nonce' )
+		) );
+	}
+
+	public function register_shortcodes() {
+		add_shortcode( 'smlf_form', array( $this, 'render_form' ) );
+	}
+
+	public function render_form( $atts ) {
+		$atts = shortcode_atts( array(
+			'id' => 0,
+		), $atts, 'smlf_form' );
+
+		$form_id = intval( $atts['id'] );
+		if ( ! $form_id ) {
+			return '<p>' . esc_html__( 'Invalid Form ID.', 'smart-multistep-lead-forms' ) . '</p>';
+		}
+
+		global $wpdb;
+		$table_name = $wpdb->prefix . 'smlf_forms';
+		$form = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table_name WHERE id = %d", $form_id ) );
+
+		if ( ! $form ) {
+			return '<p>' . esc_html__( 'Form not found.', 'smart-multistep-lead-forms' ) . '</p>';
+		}
+
+		$form_data = json_decode( $form->form_data, true );
+		$steps = isset( $form_data['steps'] ) ? $form_data['steps'] : array();
+
+		ob_start();
+		require plugin_dir_path( dirname( __FILE__ ) ) . 'templates/form-template.php';
+		return ob_get_clean();
+	}
+}

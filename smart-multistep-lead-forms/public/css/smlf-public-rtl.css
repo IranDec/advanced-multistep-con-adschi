@@ -1,0 +1,5 @@
+/* RTL Overrides for public view */
+.smlf-form-wrapper {
+	direction: rtl;
+	text-align: right;
+}
