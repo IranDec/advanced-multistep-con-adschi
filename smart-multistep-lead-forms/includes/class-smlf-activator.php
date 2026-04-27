@@ -88,9 +88,10 @@ class SMLF_Activator {
 
 		$table_forms = $wpdb->prefix . 'smlf_forms';
 		$template    = self::get_default_consultation_template();
+		$total_forms = $wpdb->get_var( "SELECT COUNT(id) FROM {$table_forms}" );
 		$existing    = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$table_forms} WHERE title = %s", $template['title'] ) );
 
-		if ( $existing ) {
+		if ( $existing || $total_forms ) {
 			return;
 		}
 
@@ -207,7 +208,7 @@ class SMLF_Activator {
 		);
 	}
 
-	private static function get_default_consultation_template() {
+	public static function get_default_consultation_template() {
 		$locale = function_exists( 'determine_locale' ) ? determine_locale() : get_locale();
 
 		if ( 0 === strpos( $locale, 'de_' ) ) {
