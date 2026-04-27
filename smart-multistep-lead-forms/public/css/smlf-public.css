@@ -4,6 +4,7 @@
 	display: block;
 	width: 100%;
 	max-width: 720px;
+	min-width: 0;
 	min-height: 0;
 	margin: 24px 0;
 	padding: 28px;
@@ -17,9 +18,7 @@
 	font-family: inherit;
 	overflow: visible;
 	perspective: none;
-	isolation: isolate;
-	contain: layout style;
-	clear: both;
+	isolation: auto;
 }
 
 .smlf-form-wrapper *,
@@ -38,6 +37,14 @@
 	opacity: 0.75;
 	pointer-events: none;
 	z-index: -1;
+}
+
+.et_pb_module .smlf-form-wrapper,
+.et_pb_text .smlf-form-wrapper,
+.et_pb_code .smlf-form-wrapper {
+	max-width: 100%;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .smlf-anti-bot-overlay {

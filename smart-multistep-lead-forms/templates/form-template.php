@@ -1,25 +1,39 @@
-<div class="smlf-form-wrapper smlf-theme-consult-pro" id="smlf-form-<?php echo esc_attr( $form_id ); ?>" data-form-id="<?php echo esc_attr( $form_id ); ?>" data-captcha-method="<?php echo esc_attr( $settings['captcha_method'] ); ?>" data-captcha-gate="<?php echo esc_attr( $settings['captcha_gate'] ); ?>" data-captcha-step="<?php echo esc_attr( $settings['captcha_step'] ); ?>">
+<?php
+$settings = wp_parse_args(
+	isset( $settings ) && is_array( $settings ) ? $settings : array(),
+	array(
+		'captcha_method' => 'none',
+		'captcha_gate'   => 'before_form',
+		'captcha_step'   => 1,
+	)
+);
 
-	<?php
-	$captcha_method          = $settings['captcha_method'];
-	$site_key                = sanitize_text_field( get_option( 'smlf_captcha_site_key', '' ) );
-	$show_initial_gate       = 'none' !== $captcha_method && 'before_form' === $settings['captcha_gate'];
-	?>
+$allowed_captcha_methods = array( 'none', 'custom', 'recaptcha_v2', 'recaptcha_v3', 'turnstile' );
+$captcha_method          = in_array( $settings['captcha_method'], $allowed_captcha_methods, true ) ? $settings['captcha_method'] : 'none';
+$captcha_gate            = in_array( $settings['captcha_gate'], array( 'before_form', 'before_submit', 'step' ), true ) ? $settings['captcha_gate'] : 'before_form';
+$captcha_step            = max( 1, absint( $settings['captcha_step'] ) );
+$site_key                = sanitize_text_field( get_option( 'smlf_captcha_site_key', '' ) );
+$show_initial_gate       = 'none' !== $captcha_method && 'before_form' === $captcha_gate;
+$steps                   = isset( $steps ) && is_array( $steps ) ? $steps : array();
+?>
+
+<div class="smlf-form-wrapper smlf-theme-consult-pro" id="smlf-form-<?php echo esc_attr( $form_id ); ?>" data-form-id="<?php echo esc_attr( $form_id ); ?>" data-captcha-method="<?php echo esc_attr( $captcha_method ); ?>" data-captcha-gate="<?php echo esc_attr( $captcha_gate ); ?>" data-captcha-step="<?php echo esc_attr( $captcha_step ); ?>">
+
 	<!-- Anti-bot Gate -->
-	<?php if ($captcha_method !== 'none') : ?>
+	<?php if ( 'none' !== $captcha_method ) : ?>
 	<div class="smlf-anti-bot-overlay smlf-anti-bot-gate" style="<?php echo $show_initial_gate ? 'display:flex;' : 'display:none;'; ?>">
 		<div class="smlf-anti-bot-modal">
 			<h3><?php esc_html_e( 'Security Check', 'smart-multistep-lead-forms' ); ?></h3>
 			<p><?php esc_html_e( 'Please verify you are human.', 'smart-multistep-lead-forms' ); ?></p>
 
-			<?php if ($captcha_method === 'custom') : ?>
+			<?php if ( 'custom' === $captcha_method ) : ?>
 				<label>
 					<input type="checkbox" id="smlf-bot-check-<?php echo esc_attr( $form_id ); ?>"> <?php esc_html_e( 'I am not a robot', 'smart-multistep-lead-forms' ); ?>
 				</label>
-			<?php elseif ($captcha_method === 'recaptcha_v2') : ?>
-				<div class="g-recaptcha" data-sitekey="<?php echo esc_attr($site_key); ?>" id="smlf-recaptcha-<?php echo esc_attr( $form_id ); ?>"></div>
-			<?php elseif ($captcha_method === 'turnstile') : ?>
-				<div class="cf-turnstile" data-sitekey="<?php echo esc_attr($site_key); ?>"></div>
+			<?php elseif ( 'recaptcha_v2' === $captcha_method ) : ?>
+				<div class="g-recaptcha" data-sitekey="<?php echo esc_attr( $site_key ); ?>" id="smlf-recaptcha-<?php echo esc_attr( $form_id ); ?>"></div>
+			<?php elseif ( 'turnstile' === $captcha_method ) : ?>
+				<div class="cf-turnstile" data-sitekey="<?php echo esc_attr( $site_key ); ?>"></div>
 			<?php endif; ?>
 
 			<button type="button" class="smlf-btn-verify"><?php esc_html_e( 'Verify', 'smart-multistep-lead-forms' ); ?></button>
@@ -36,9 +50,14 @@
 	<form class="smlf-form-actual" style="<?php echo $show_initial_gate ? 'display:none;' : 'display:block;'; ?>" enctype="multipart/form-data">
 		<?php if ( ! empty( $steps ) ) : ?>
 			<?php foreach ( $steps as $index => $step ) : ?>
-				<div class="smlf-form-step" data-step-id="<?php echo esc_attr( $step['step_id'] ); ?>" data-step-index="<?php echo esc_attr( $index ); ?>" data-terminal="<?php echo esc_attr( isset( $step['terminal'] ) ? $step['terminal'] : '' ); ?>" data-logic-target="<?php echo esc_attr( isset($step['logic_target']) ? $step['logic_target'] : '' ); ?>" data-logic-value="<?php echo esc_attr( isset($step['logic_value']) ? $step['logic_value'] : '' ); ?>" <?php if($index > 0) echo 'style="display:none;"'; ?>>
+				<?php
+				$step       = is_array( $step ) ? $step : array();
+				$step_id    = isset( $step['step_id'] ) ? absint( $step['step_id'] ) : $index + 1;
+				$step_title = isset( $step['title'] ) ? $step['title'] : '';
+				?>
+				<div class="smlf-form-step" data-step-id="<?php echo esc_attr( $step_id ); ?>" data-step-index="<?php echo esc_attr( $index ); ?>" data-terminal="<?php echo esc_attr( isset( $step['terminal'] ) ? $step['terminal'] : '' ); ?>" data-logic-target="<?php echo esc_attr( isset( $step['logic_target'] ) ? $step['logic_target'] : '' ); ?>" data-logic-value="<?php echo esc_attr( isset( $step['logic_value'] ) ? $step['logic_value'] : '' ); ?>" <?php echo $index > 0 ? 'style="display:none;"' : ''; ?>>
 					<?php if ( ! empty( $step['title'] ) ) : ?>
-						<h3 class="smlf-step-title"><?php echo esc_html( $step['title'] ); ?></h3>
+						<h3 class="smlf-step-title"><?php echo esc_html( $step_title ); ?></h3>
 					<?php endif; ?>
 
 					<?php
@@ -46,11 +65,13 @@
 					?>
 					<?php foreach ( $fields as $field ) : ?>
 						<?php
+						$field      = is_array( $field ) ? $field : array();
 						$field_type = isset( $field['type'] ) ? sanitize_key( $field['type'] ) : 'text';
 						$field_label = isset( $field['label'] ) ? $field['label'] : '';
 						$field_id   = isset( $field['field_id'] ) && $field['field_id'] ? sanitize_key( $field['field_id'] ) : sanitize_key( $index . '_' . sanitize_title( $field_label ) );
 						$field_name = 'smlf_field_' . $field_id;
 						$required   = ! empty( $field['required'] ) || 'email' === $field_type;
+						$required_attr = $required ? ' required' : '';
 						?>
 						<div class="smlf-field-row smlf-field-type-<?php echo esc_attr( $field_type ); ?>">
 							<?php if ( 'message' !== $field_type ) : ?>
@@ -61,16 +82,16 @@
 								<div class="smlf-message-block"><?php echo esc_html( $field_label ); ?></div>
 
 							<?php elseif ( $field_type === 'text' ) : ?>
-								<input type="text" name="<?php echo esc_attr( $field_name ); ?>" class="smlf-input" <?php required( $required ); ?>>
+								<input type="text" name="<?php echo esc_attr( $field_name ); ?>" class="smlf-input"<?php echo $required_attr; ?>>
 
 							<?php elseif ( $field_type === 'email' ) : ?>
-								<input type="email" name="<?php echo esc_attr( $field_name ); ?>" class="smlf-input smlf-critical-field" <?php required( $required ); ?>>
+								<input type="email" name="<?php echo esc_attr( $field_name ); ?>" class="smlf-input smlf-critical-field"<?php echo $required_attr; ?>>
 
 							<?php elseif ( $field_type === 'phone' ) : ?>
-								<input type="tel" name="<?php echo esc_attr( $field_name ); ?>" class="smlf-input smlf-critical-field" <?php required( $required ); ?>>
+								<input type="tel" name="<?php echo esc_attr( $field_name ); ?>" class="smlf-input smlf-critical-field"<?php echo $required_attr; ?>>
 
 							<?php elseif ( $field_type === 'textarea' ) : ?>
-								<textarea name="<?php echo esc_attr( $field_name ); ?>" class="smlf-input smlf-textarea" rows="5" <?php required( $required ); ?>></textarea>
+								<textarea name="<?php echo esc_attr( $field_name ); ?>" class="smlf-input smlf-textarea" rows="5"<?php echo $required_attr; ?>></textarea>
 
 							<?php elseif ( $field_type === 'file' ) : ?>
 								<label class="smlf-file-dropzone">
@@ -81,24 +102,24 @@
 								<div class="smlf-file-list" aria-live="polite"></div>
 
 							<?php elseif ( $field_type === 'cards' ) :
-								$options = isset($field['options']) && !empty($field['options']) ? array_map('trim', explode(',', $field['options'])) : array('Option 1', 'Option 2');
+								$options = isset( $field['options'] ) && ! empty( $field['options'] ) ? array_filter( array_map( 'trim', explode( ',', $field['options'] ) ) ) : array( 'Option 1', 'Option 2' );
 							?>
 								<div class="smlf-cards-container">
-									<?php foreach ($options as $opt) : ?>
+									<?php foreach ( $options as $opt ) : ?>
 									<label class="smlf-card">
-										<input type="radio" name="<?php echo esc_attr( $field_name ); ?>" value="<?php echo esc_attr($opt); ?>" <?php required( $required ); ?>>
-										<span class="smlf-card-content"><?php echo esc_html($opt); ?></span>
+										<input type="radio" name="<?php echo esc_attr( $field_name ); ?>" value="<?php echo esc_attr( $opt ); ?>"<?php echo $required_attr; ?>>
+										<span class="smlf-card-content"><?php echo esc_html( $opt ); ?></span>
 									</label>
 									<?php endforeach; ?>
 								</div>
 							<?php elseif ( $field_type === 'radio' ) :
-								$options = isset($field['options']) && !empty($field['options']) ? array_map('trim', explode(',', $field['options'])) : array('Option 1', 'Option 2');
+								$options = isset( $field['options'] ) && ! empty( $field['options'] ) ? array_filter( array_map( 'trim', explode( ',', $field['options'] ) ) ) : array( 'Option 1', 'Option 2' );
 							?>
 								<div class="smlf-radio-container">
-									<?php foreach ($options as $opt) : ?>
+									<?php foreach ( $options as $opt ) : ?>
 									<label style="display:block; margin-bottom:5px;">
-										<input type="radio" name="<?php echo esc_attr( $field_name ); ?>" value="<?php echo esc_attr($opt); ?>" <?php required( $required ); ?>>
-										<?php echo esc_html($opt); ?>
+										<input type="radio" name="<?php echo esc_attr( $field_name ); ?>" value="<?php echo esc_attr( $opt ); ?>"<?php echo $required_attr; ?>>
+										<?php echo esc_html( $opt ); ?>
 									</label>
 									<?php endforeach; ?>
 								</div>
