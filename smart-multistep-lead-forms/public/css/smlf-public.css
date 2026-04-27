@@ -1,6 +1,9 @@
 .smlf-form-wrapper {
+	box-sizing: border-box;
 	position: relative;
+	width: min(100%, 720px);
 	max-width: 720px;
+	min-height: 260px;
 	margin: 24px auto;
 	padding: 34px;
 	border: 1px solid rgba(17, 24, 39, 0.08);
@@ -11,9 +14,17 @@
 		linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
 	box-shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
 	font-family: inherit;
-	overflow: hidden;
+	overflow: visible;
 	perspective: 1100px;
 	isolation: isolate;
+	contain: layout style;
+	clear: both;
+}
+
+.smlf-form-wrapper *,
+.smlf-form-wrapper *::before,
+.smlf-form-wrapper *::after {
+	box-sizing: border-box;
 }
 
 .smlf-form-wrapper::before {
@@ -40,6 +51,21 @@
 	z-index: 10;
 }
 
+.smlf-anti-bot-overlay label,
+.smlf-anti-bot-overlay input,
+.smlf-anti-bot-overlay button {
+	pointer-events: auto;
+}
+
+.smlf-anti-bot-overlay input[type="checkbox"] {
+	position: static;
+	width: auto;
+	height: auto;
+	margin-inline-end: 8px;
+	opacity: 1;
+	pointer-events: auto;
+}
+
 .smlf-anti-bot-modal {
 	width: min(100%, 420px);
 	padding: 28px;
@@ -50,6 +76,8 @@
 	text-align: center;
 	transform: rotateX(0deg) translateZ(20px);
 	animation: smlf-pop 420ms ease both;
+	position: relative;
+	z-index: 11;
 }
 
 .smlf-progress-bar-container {
@@ -136,6 +164,7 @@
 }
 
 .smlf-card {
+	position: relative;
 	cursor: pointer;
 	transform-style: preserve-3d;
 }
