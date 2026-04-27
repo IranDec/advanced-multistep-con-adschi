@@ -5,13 +5,18 @@ jQuery(document).ready(function($) {
 		const $form = $wrapper.find('.smlf-form-actual');
 		const $steps = $wrapper.find('.smlf-form-step');
 		const totalSteps = $steps.length;
+		const captchaMethod = $wrapper.data('captcha-method') || smlf_public_obj.captcha_method || 'custom';
+		const captchaGate = $wrapper.data('captcha-gate') || 'before_form';
+		const captchaStep = parseInt($wrapper.data('captcha-step') || '1', 10);
 		let currentStep = 0;
 		let leadId = null;
 		let stepHistory = [];
-		let customVerified = smlf_public_obj.captcha_method === 'none' ? '1' : '0';
+		let customVerified = captchaMethod === 'none' ? '1' : '0';
 		let verifiedCaptchaToken = '';
+		let pendingStepIndex = null;
+		let pendingSubmitButton = null;
 
-		if (smlf_public_obj.captcha_method === 'none') {
+		if (captchaMethod === 'none' || captchaGate !== 'before_form') {
 			revealForm();
 		}
 
@@ -28,7 +33,18 @@ jQuery(document).ready(function($) {
 					if (response.success) {
 						verifiedCaptchaToken = response.data && response.data.captcha_token ? response.data.captcha_token : token;
 						customVerified = customState || customVerified;
-						revealForm();
+						if (pendingSubmitButton) {
+							$wrapper.find('.smlf-anti-bot-overlay').fadeOut(180);
+							const $button = pendingSubmitButton;
+							pendingSubmitButton = null;
+							submitForm($button);
+						} else if (pendingStepIndex !== null) {
+							$wrapper.find('.smlf-anti-bot-overlay').fadeOut(180);
+							showStep(pendingStepIndex);
+							pendingStepIndex = null;
+						} else {
+							revealForm();
+						}
 						return;
 					}
 
@@ -49,7 +65,7 @@ jQuery(document).ready(function($) {
 		}
 
 		function getCaptchaToken(callback) {
-			if (smlf_public_obj.captcha_method === 'none') {
+			if (captchaMethod === 'none') {
 				callback('', '1');
 				return;
 			}
@@ -59,7 +75,7 @@ jQuery(document).ready(function($) {
 				return;
 			}
 
-			if (smlf_public_obj.captcha_method === 'custom') {
+			if (captchaMethod === 'custom') {
 				if (!$wrapper.find('#smlf-bot-check-' + formId).is(':checked')) {
 					alert(smlf_public_obj.i18n.please_verify);
 					return;
@@ -68,7 +84,7 @@ jQuery(document).ready(function($) {
 				return;
 			}
 
-			if (smlf_public_obj.captcha_method === 'recaptcha_v2') {
+			if (captchaMethod === 'recaptcha_v2') {
 				const token = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : '';
 				if (!token) {
 					alert(smlf_public_obj.i18n.please_verify);
@@ -78,7 +94,7 @@ jQuery(document).ready(function($) {
 				return;
 			}
 
-			if (smlf_public_obj.captcha_method === 'recaptcha_v3') {
+			if (captchaMethod === 'recaptcha_v3') {
 				if (typeof grecaptcha === 'undefined') {
 					alert(smlf_public_obj.i18n.error);
 					return;
@@ -91,7 +107,7 @@ jQuery(document).ready(function($) {
 				return;
 			}
 
-			if (smlf_public_obj.captcha_method === 'turnstile') {
+			if (captchaMethod === 'turnstile') {
 				const token = $wrapper.find('[name="cf-turnstile-response"]').val();
 				if (!token) {
 					alert(smlf_public_obj.i18n.please_verify);
@@ -115,6 +131,15 @@ jQuery(document).ready(function($) {
 			$steps.eq(index).addClass('smlf-step-active').fadeIn(220);
 			currentStep = index;
 			updateProgress();
+		}
+
+		function needsCaptchaBeforeStep(index) {
+			return captchaMethod !== 'none' && !verifiedCaptchaToken && captchaGate === 'on_step' && index === captchaStep - 1;
+		}
+
+		function requestCaptchaForStep(index) {
+			pendingStepIndex = index;
+			$wrapper.find('.smlf-anti-bot-overlay').fadeIn(180);
 		}
 
 		function getNextStepIndex() {
@@ -230,6 +255,10 @@ jQuery(document).ready(function($) {
 							if (!isTerminalStep(nextIdx) && hasValidContactForPartial()) {
 								savePartialLead();
 							}
+							if (needsCaptchaBeforeStep(nextIdx)) {
+								requestCaptchaForStep(nextIdx);
+								return;
+							}
 							stepHistory.push(currentStep);
 							showStep(nextIdx);
 						}
@@ -250,6 +279,10 @@ jQuery(document).ready(function($) {
 				if (nextIdx < totalSteps) {
 					if (!isTerminalStep(nextIdx) && hasValidContactForPartial()) {
 						savePartialLead();
+					}
+					if (needsCaptchaBeforeStep(nextIdx)) {
+						requestCaptchaForStep(nextIdx);
+						return;
 					}
 					stepHistory.push(currentStep);
 					showStep(nextIdx);
@@ -333,6 +366,17 @@ jQuery(document).ready(function($) {
 
 			const $btn = $(this);
 
+			if (captchaMethod !== 'none' && captchaGate === 'before_submit' && !verifiedCaptchaToken) {
+				pendingStepIndex = null;
+				pendingSubmitButton = $btn;
+				$wrapper.find('.smlf-anti-bot-overlay').fadeIn(180);
+				return;
+			}
+
+			submitForm($btn);
+		});
+
+		function submitForm($btn) {
 			getCaptchaToken(function(token, customState) {
 				$btn.prop('disabled', true).text(smlf_public_obj.i18n.submitting);
 
@@ -366,7 +410,7 @@ jQuery(document).ready(function($) {
 					$btn.prop('disabled', false).text(smlf_public_obj.i18n.submit);
 				});
 			});
-		});
+		}
 
 		function showError(response) {
 			alert((response && response.data && response.data.message) || smlf_public_obj.i18n.error);

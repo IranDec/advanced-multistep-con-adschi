@@ -52,6 +52,29 @@
 	width: 50%;
 }
 
+.smlf-form-advanced-settings {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-bottom: 20px;
+	padding: 12px;
+	border: 1px solid #dcdcde;
+	background: #f6f7f7;
+}
+
+.smlf-form-advanced-settings label {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	min-width: 180px;
+	font-weight: 600;
+}
+
+.smlf-form-advanced-settings select,
+.smlf-form-advanced-settings input {
+	min-height: 32px;
+}
+
 .smlf-step {
 	border: 1px dashed #ccc;
 	padding: 15px;
@@ -129,6 +152,15 @@
 	margin: 0 0 18px;
 	font-size: 24px;
 	font-weight: 800;
+}
+
+.smlf-preview-captcha-note {
+	margin-bottom: 14px;
+	padding: 10px 12px;
+	border-radius: 10px;
+	background: #fff7ed;
+	color: #9a3412;
+	font-weight: 700;
 }
 
 .smlf-preview-step {

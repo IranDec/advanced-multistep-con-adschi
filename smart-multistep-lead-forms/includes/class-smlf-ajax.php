@@ -68,9 +68,11 @@ class SMLF_Ajax {
 	}
 
 	public function verify_bot() {
+		$form_id         = isset( $_POST['form_id'] ) ? absint( wp_unslash( $_POST['form_id'] ) ) : 0;
+		$form            = $this->get_form( $form_id );
 		$token           = $this->get_post_text( 'token' );
 		$custom_verified = $this->get_post_text( 'custom_verified' );
-		$result          = $this->verify_captcha_token( $token, $custom_verified, true );
+		$result          = $this->verify_captcha_token( $token, $custom_verified, true, $form );
 
 		if ( is_wp_error( $result ) ) {
 			wp_send_json_error( array( 'message' => $result->get_error_message() ), 400 );
@@ -160,7 +162,7 @@ class SMLF_Ajax {
 			wp_send_json_error( array( 'message' => __( 'Form not found.', 'smart-multistep-lead-forms' ) ), 404 );
 		}
 
-		$captcha_result = $this->verify_captcha_token( $this->get_post_text( 'captcha_token' ), $this->get_post_text( 'custom_verified' ) );
+		$captcha_result = $this->verify_captcha_token( $this->get_post_text( 'captcha_token' ), $this->get_post_text( 'custom_verified' ), false, $form );
 		if ( is_wp_error( $captcha_result ) ) {
 			wp_send_json_error( array( 'message' => $captcha_result->get_error_message() ), 400 );
 		}
@@ -270,8 +272,9 @@ class SMLF_Ajax {
 		$title = '' !== $title ? $title : __( 'New Form', 'smart-multistep-lead-forms' );
 
 		$sanitized = array(
-			'title' => $title,
-			'steps' => array(),
+			'title'    => $title,
+			'settings' => $this->sanitize_form_settings( isset( $form_data['settings'] ) && is_array( $form_data['settings'] ) ? $form_data['settings'] : array() ),
+			'steps'    => array(),
 		);
 
 		if ( empty( $form_data['steps'] ) || ! is_array( $form_data['steps'] ) ) {
@@ -328,6 +331,21 @@ class SMLF_Ajax {
 		}
 
 		return $sanitized;
+	}
+
+	private function sanitize_form_settings( $settings ) {
+		$allowed_methods = array( 'inherit', 'none', 'custom', 'recaptcha_v2', 'recaptcha_v3', 'turnstile' );
+		$allowed_gates   = array( 'before_form', 'before_submit', 'on_step' );
+
+		$captcha_method = isset( $settings['captcha_method'] ) ? sanitize_key( $settings['captcha_method'] ) : 'inherit';
+		$captcha_gate   = isset( $settings['captcha_gate'] ) ? sanitize_key( $settings['captcha_gate'] ) : 'before_form';
+		$captcha_step   = isset( $settings['captcha_step'] ) ? absint( $settings['captcha_step'] ) : 1;
+
+		return array(
+			'captcha_method' => in_array( $captcha_method, $allowed_methods, true ) ? $captcha_method : 'inherit',
+			'captcha_gate'   => in_array( $captcha_gate, $allowed_gates, true ) ? $captcha_gate : 'before_form',
+			'captcha_step'   => max( 1, $captcha_step ),
+		);
 	}
 
 	private function sanitize_submission_data( $data_raw ) {
@@ -414,8 +432,8 @@ class SMLF_Ajax {
 		return $uploaded;
 	}
 
-	private function verify_captcha_token( $token, $custom_verified = '', $is_verify_step = false ) {
-		$captcha_method = $this->get_captcha_method();
+	private function verify_captcha_token( $token, $custom_verified = '', $is_verify_step = false, $form = null ) {
+		$captcha_method = $this->get_captcha_method( $form );
 		$secret_key     = get_option( 'smlf_captcha_secret_key', '' );
 
 		if ( 'none' === $captcha_method ) {
@@ -521,8 +539,20 @@ class SMLF_Ajax {
 		);
 	}
 
-	private function get_captcha_method() {
-		$method = sanitize_key( get_option( 'smlf_captcha_method', 'custom' ) );
+	private function get_captcha_method( $form = null ) {
+		$method = 'inherit';
+
+		if ( $form && ! empty( $form->form_data ) ) {
+			$form_data = json_decode( $form->form_data, true );
+			if ( is_array( $form_data ) && isset( $form_data['settings']['captcha_method'] ) ) {
+				$method = sanitize_key( $form_data['settings']['captcha_method'] );
+			}
+		}
+
+		if ( 'inherit' === $method ) {
+			$method = sanitize_key( get_option( 'smlf_captcha_method', 'custom' ) );
+		}
+
 		return in_array( $method, $this->allowed_captcha_methods, true ) ? $method : 'custom';
 	}
 

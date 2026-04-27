@@ -6,6 +6,11 @@ $form_id            = isset( $_GET['id'] ) ? absint( wp_unslash( $_GET['id'] ) )
 $existing_form_data = array(
 	'id'    => 0,
 	'title' => __( 'New Form', 'smart-multistep-lead-forms' ),
+	'settings' => array(
+		'captcha_method' => 'inherit',
+		'captcha_gate'   => 'before_form',
+		'captcha_step'   => 1,
+	),
 	'steps' => array(),
 );
 
@@ -18,9 +23,10 @@ if ( $form_id ) {
 		$decoded = is_array( $decoded ) ? $decoded : array();
 
 		$existing_form_data = array(
-			'id'    => absint( $form->id ),
-			'title' => sanitize_text_field( $form->title ),
-			'steps' => isset( $decoded['steps'] ) && is_array( $decoded['steps'] ) ? $decoded['steps'] : array(),
+			'id'       => absint( $form->id ),
+			'title'    => sanitize_text_field( $form->title ),
+			'settings' => isset( $decoded['settings'] ) && is_array( $decoded['settings'] ) ? $decoded['settings'] : $existing_form_data['settings'],
+			'steps'    => isset( $decoded['steps'] ) && is_array( $decoded['steps'] ) ? $decoded['steps'] : array(),
 		);
 	}
 }
@@ -50,6 +56,31 @@ if ( $form_id ) {
 			<div class="smlf-form-settings">
 				<input type="text" id="smlf-form-title" placeholder="<?php echo esc_attr( $builder_i18n['form_title'] ); ?>" value="<?php echo esc_attr( $existing_form_data['title'] ); ?>" />
 				<button class="button button-primary" id="smlf-save-form"><?php echo esc_html( $builder_i18n['save_form'] ); ?></button>
+			</div>
+			<div class="smlf-form-advanced-settings">
+				<label>
+					<span><?php echo esc_html( $builder_i18n['captcha_method'] ); ?></span>
+					<select id="smlf-captcha-method">
+						<option value="inherit"><?php echo esc_html( $builder_i18n['captcha_inherit'] ); ?></option>
+						<option value="none"><?php echo esc_html( $builder_i18n['captcha_none'] ); ?></option>
+						<option value="custom"><?php echo esc_html( $builder_i18n['captcha_custom'] ); ?></option>
+						<option value="recaptcha_v2"><?php echo esc_html( $builder_i18n['captcha_recaptcha_v2'] ); ?></option>
+						<option value="recaptcha_v3"><?php echo esc_html( $builder_i18n['captcha_recaptcha_v3'] ); ?></option>
+						<option value="turnstile"><?php echo esc_html( $builder_i18n['captcha_turnstile'] ); ?></option>
+					</select>
+				</label>
+				<label>
+					<span><?php echo esc_html( $builder_i18n['captcha_gate'] ); ?></span>
+					<select id="smlf-captcha-gate">
+						<option value="before_form"><?php echo esc_html( $builder_i18n['captcha_before_form'] ); ?></option>
+						<option value="before_submit"><?php echo esc_html( $builder_i18n['captcha_before_submit'] ); ?></option>
+						<option value="on_step"><?php echo esc_html( $builder_i18n['captcha_on_step'] ); ?></option>
+					</select>
+				</label>
+				<label>
+					<span><?php echo esc_html( $builder_i18n['captcha_step'] ); ?></span>
+					<input type="number" id="smlf-captcha-step" min="1" value="1">
+				</label>
 			</div>
 
 			<div id="smlf-steps-container">

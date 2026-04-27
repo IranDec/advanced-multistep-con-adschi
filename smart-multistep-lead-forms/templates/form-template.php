@@ -1,14 +1,12 @@
-<div class="smlf-form-wrapper smlf-theme-consult-pro" id="smlf-form-<?php echo esc_attr( $form_id ); ?>" data-form-id="<?php echo esc_attr( $form_id ); ?>">
+<div class="smlf-form-wrapper smlf-theme-consult-pro" id="smlf-form-<?php echo esc_attr( $form_id ); ?>" data-form-id="<?php echo esc_attr( $form_id ); ?>" data-captcha-method="<?php echo esc_attr( $settings['captcha_method'] ); ?>" data-captcha-gate="<?php echo esc_attr( $settings['captcha_gate'] ); ?>" data-captcha-step="<?php echo esc_attr( $settings['captcha_step'] ); ?>">
 
 	<?php
-	$allowed_captcha_methods = array( 'none', 'custom', 'recaptcha_v2', 'recaptcha_v3', 'turnstile' );
-	$captcha_method          = sanitize_key( get_option( 'smlf_captcha_method', 'custom' ) );
-	$captcha_method          = in_array( $captcha_method, $allowed_captcha_methods, true ) ? $captcha_method : 'custom';
+	$captcha_method          = $settings['captcha_method'];
 	$site_key                = sanitize_text_field( get_option( 'smlf_captcha_site_key', '' ) );
 	?>
 	<!-- Anti-bot Overlay -->
 	<?php if ($captcha_method !== 'none') : ?>
-	<div class="smlf-anti-bot-overlay">
+	<div class="smlf-anti-bot-overlay" <?php echo 'before_form' === $settings['captcha_gate'] ? '' : 'style="display:none;"'; ?>>
 		<div class="smlf-anti-bot-modal">
 			<h3><?php esc_html_e( 'Security Check', 'smart-multistep-lead-forms' ); ?></h3>
 			<p><?php esc_html_e( 'Please verify you are human.', 'smart-multistep-lead-forms' ); ?></p>

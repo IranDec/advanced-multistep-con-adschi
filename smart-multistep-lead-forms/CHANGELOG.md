@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.1] - 2026-04-27
+### Fixed
+- Builder blocks now support both click-to-add and drag-and-drop reliably.
+- Live preview no longer stays empty while editing.
+- Frontend form wrapper has safer height/layout behavior and captcha overlay interaction.
+
+### Added
+- Per-form captcha method and display timing controls.
+
 ## [1.2.0] - 2026-04-27
 ### Added
 - Animated consultation-ready frontend theme with lightweight 3D interactions.

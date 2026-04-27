@@ -212,14 +212,16 @@ jQuery(document).ready(function($) {
 
 	if (typeof window.smlf_existing_form_data !== 'undefined' && Array.isArray(window.smlf_existing_form_data.steps) && window.smlf_existing_form_data.steps.length > 0) {
 		$('#smlf-form-title').val(window.smlf_existing_form_data.title || 'New Form');
+		loadSettings(window.smlf_existing_form_data.settings || {});
 		window.smlf_existing_form_data.steps.forEach(function(step) {
 			addStep(step);
 		});
 	} else if ($('#smlf-steps-container').length > 0) {
+		loadSettings(window.smlf_existing_form_data && window.smlf_existing_form_data.settings ? window.smlf_existing_form_data.settings : {});
 		addStep();
 	}
 
-	$(document).on('input change', '#smlf-form-title, .smlf-step input, .smlf-field-item input', renderPreview);
+	$(document).on('input change', '#smlf-form-title, #smlf-captcha-method, #smlf-captcha-gate, #smlf-captcha-step, .smlf-step input, .smlf-field-item input', renderPreview);
 
 	$('#smlf-load-template').on('click', function(e) {
 		e.preventDefault();
@@ -231,6 +233,7 @@ jQuery(document).ready(function($) {
 
 		const title = $('#smlf-form-title').val();
 		const steps = collectSteps();
+		const settings = collectSettings();
 		const urlParams = new URLSearchParams(window.location.search);
 		const formId = urlParams.get('id') || (window.smlf_existing_form_data ? window.smlf_existing_form_data.id : 0);
 		const $button = $(this);
@@ -243,6 +246,7 @@ jQuery(document).ready(function($) {
 			form_id: formId,
 			form_data: JSON.stringify({
 				title: title,
+				settings: settings,
 				steps: steps
 			})
 		}).done(function(response) {
@@ -302,6 +306,7 @@ jQuery(document).ready(function($) {
 		}
 
 		$('#smlf-form-title').val(template.title || '');
+		loadSettings(template.settings || {});
 		$('#smlf-steps-container').empty();
 		stepCounter = 1;
 		template.steps.forEach(function(step) {
@@ -317,11 +322,27 @@ jQuery(document).ready(function($) {
 		}
 
 		const title = $('#smlf-form-title').val();
+		const settings = collectSettings();
 		const steps = collectSteps();
 		$preview.empty();
 
 		const $shell = $('<div/>', { 'class': 'smlf-preview-shell' });
 		$shell.append($('<h3/>', { text: title }));
+		if (settings.captcha_method !== 'none') {
+			$shell.append($('<div/>', {
+				'class': 'smlf-preview-captcha-note',
+				text: i18n.captcha_method + ': ' + $('#smlf-captcha-method option:selected').text() + ' / ' + $('#smlf-captcha-gate option:selected').text()
+			}));
+		}
+
+		if (!steps.length) {
+			$shell.append($('<div/>', {
+				'class': 'smlf-preview-message',
+				text: i18n.add_step
+			}));
+			$preview.append($shell);
+			return;
+		}
 
 		steps.forEach(function(step, stepIndex) {
 			const $step = $('<div/>', { 'class': 'smlf-preview-step' });
@@ -380,5 +401,19 @@ jQuery(document).ready(function($) {
 		return map[type] || type;
 	}
 
-	renderPreview();
+	function collectSettings() {
+		return {
+			captcha_method: $('#smlf-captcha-method').val() || 'inherit',
+			captcha_gate: $('#smlf-captcha-gate').val() || 'before_form',
+			captcha_step: parseInt($('#smlf-captcha-step').val() || '1', 10)
+		};
+	}
+
+	function loadSettings(settings) {
+		$('#smlf-captcha-method').val(settings.captcha_method || 'inherit');
+		$('#smlf-captcha-gate').val(settings.captcha_gate || 'before_form');
+		$('#smlf-captcha-step').val(settings.captcha_step || 1);
+	}
+
+	setTimeout(renderPreview, 0);
 });
