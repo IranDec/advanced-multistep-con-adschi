@@ -7,6 +7,7 @@
 	display: flex;
 	gap: 20px;
 	margin-top: 20px;
+	align-items: flex-start;
 }
 
 .smlf-builder-sidebar {
@@ -72,6 +73,13 @@
 	background: #fff;
 }
 
+.smlf-field-placeholder {
+	min-height: 52px;
+	margin-bottom: 5px;
+	border: 1px dashed #72aee6;
+	background: #f0f6fc;
+}
+
 .smlf-badge {
 	padding: 3px 8px;
 	border-radius: 12px;
@@ -80,3 +88,134 @@
 }
 .smlf-badge.updated { background: #46b450; }
 .smlf-badge.error { background: #dc3232; }
+
+#smlf-load-template {
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.smlf-live-preview-panel {
+	margin-top: 28px;
+	padding-top: 24px;
+	border-top: 1px solid #dcdcde;
+}
+
+.smlf-live-preview-header h2 {
+	margin: 0 0 4px;
+	font-size: 18px;
+}
+
+.smlf-live-preview-header p {
+	margin: 0 0 16px;
+	color: #646970;
+}
+
+.smlf-builder-preview {
+	max-width: 720px;
+	padding: 26px;
+	border: 1px solid rgba(17, 24, 39, 0.08);
+	border-radius: 18px;
+	background:
+		radial-gradient(circle at top left, rgba(20, 184, 166, 0.14), transparent 34%),
+		radial-gradient(circle at bottom right, rgba(244, 63, 94, 0.1), transparent 32%),
+		linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
+	box-shadow: 0 18px 46px rgba(15, 23, 42, 0.1);
+	perspective: 1000px;
+}
+
+.smlf-preview-shell > h3 {
+	margin: 0 0 18px;
+	font-size: 24px;
+	font-weight: 800;
+}
+
+.smlf-preview-step {
+	margin-bottom: 18px;
+	padding: 18px;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: 16px;
+	background: rgba(255, 255, 255, 0.78);
+}
+
+.smlf-preview-step-title {
+	margin-bottom: 14px;
+	font-size: 18px;
+	font-weight: 800;
+}
+
+.smlf-preview-field {
+	margin-bottom: 14px;
+}
+
+.smlf-preview-field label {
+	display: block;
+	margin-bottom: 7px;
+	font-weight: 700;
+}
+
+.smlf-preview-input,
+.smlf-preview-textarea {
+	min-height: 42px;
+	border: 1px solid rgba(15, 23, 42, 0.12);
+	border-radius: 12px;
+	background: #fff;
+}
+
+.smlf-preview-textarea {
+	min-height: 96px;
+}
+
+.smlf-preview-message {
+	padding: 14px 16px;
+	border: 1px solid rgba(20, 184, 166, 0.2);
+	border-radius: 14px;
+	background: linear-gradient(135deg, rgba(236, 253, 245, 0.94), rgba(240, 249, 255, 0.94));
+	font-weight: 800;
+	text-align: center;
+}
+
+.smlf-preview-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+	gap: 10px;
+}
+
+.smlf-preview-cards span,
+.smlf-preview-file {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 52px;
+	padding: 10px;
+	border: 1px solid rgba(15, 23, 42, 0.1);
+	border-radius: 14px;
+	background: rgba(255, 255, 255, 0.9);
+	box-shadow: 0 10px 22px rgba(15, 23, 42, 0.07);
+	font-weight: 800;
+	text-align: center;
+}
+
+.smlf-preview-file {
+	border-style: dashed;
+	background: rgba(240, 249, 255, 0.8);
+	color: #0369a1;
+}
+
+.smlf-preview-nav {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	margin-top: 16px;
+}
+
+.smlf-preview-nav button {
+	min-height: 38px;
+	padding: 8px 16px;
+	border: 0;
+	border-radius: 999px;
+	background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+	color: #fff;
+	font-weight: 800;
+}

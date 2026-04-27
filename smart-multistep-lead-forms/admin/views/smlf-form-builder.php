@@ -1,6 +1,7 @@
 <?php
 global $wpdb;
 
+$builder_i18n       = $this->get_builder_i18n();
 $form_id            = isset( $_GET['id'] ) ? absint( wp_unslash( $_GET['id'] ) ) : 0;
 $existing_form_data = array(
 	'id'    => 0,
@@ -25,33 +26,42 @@ if ( $form_id ) {
 }
 ?>
 <div class="wrap smlf-builder-wrap">
-	<h1 class="wp-heading-inline"><?php esc_html_e( 'Form Builder', 'smart-multistep-lead-forms' ); ?></h1>
+	<h1 class="wp-heading-inline"><?php echo esc_html( $builder_i18n['builder_title'] ); ?></h1>
 	<hr class="wp-header-end">
 
 	<div id="smlf-builder-app">
 		<div class="smlf-builder-sidebar">
-			<h3><?php esc_html_e( 'Blocks', 'smart-multistep-lead-forms' ); ?></h3>
+			<h3><?php echo esc_html( $builder_i18n['blocks'] ); ?></h3>
 			<ul class="smlf-draggable-blocks">
-				<li data-type="text"><?php esc_html_e( 'Text Input', 'smart-multistep-lead-forms' ); ?></li>
-				<li data-type="email"><?php esc_html_e( 'Email Input', 'smart-multistep-lead-forms' ); ?></li>
-				<li data-type="phone"><?php esc_html_e( 'Phone Input', 'smart-multistep-lead-forms' ); ?></li>
-				<li data-type="textarea"><?php esc_html_e( 'Long Text', 'smart-multistep-lead-forms' ); ?></li>
-				<li data-type="file"><?php esc_html_e( 'File Upload', 'smart-multistep-lead-forms' ); ?></li>
-				<li data-type="message"><?php esc_html_e( 'Message Text', 'smart-multistep-lead-forms' ); ?></li>
-				<li data-type="cards"><?php esc_html_e( 'Clickable Cards', 'smart-multistep-lead-forms' ); ?></li>
-				<li data-type="radio"><?php esc_html_e( 'Radio Buttons', 'smart-multistep-lead-forms' ); ?></li>
+				<li data-type="text"><?php echo esc_html( $builder_i18n['text_input'] ); ?></li>
+				<li data-type="email"><?php echo esc_html( $builder_i18n['email_input'] ); ?></li>
+				<li data-type="phone"><?php echo esc_html( $builder_i18n['phone_input'] ); ?></li>
+				<li data-type="textarea"><?php echo esc_html( $builder_i18n['long_text'] ); ?></li>
+				<li data-type="file"><?php echo esc_html( $builder_i18n['file_upload'] ); ?></li>
+				<li data-type="message"><?php echo esc_html( $builder_i18n['message_text'] ); ?></li>
+				<li data-type="cards"><?php echo esc_html( $builder_i18n['clickable_cards'] ); ?></li>
+				<li data-type="radio"><?php echo esc_html( $builder_i18n['radio_buttons'] ); ?></li>
 			</ul>
-			<button class="button button-primary" id="smlf-add-step"><?php esc_html_e( '+ Add Step', 'smart-multistep-lead-forms' ); ?></button>
+			<button class="button button-primary" id="smlf-add-step"><?php echo esc_html( $builder_i18n['add_step'] ); ?></button>
+			<button class="button" id="smlf-load-template" type="button"><?php echo esc_html( $builder_i18n['load_template'] ); ?></button>
 		</div>
 
 		<div class="smlf-builder-canvas">
 			<div class="smlf-form-settings">
-				<input type="text" id="smlf-form-title" placeholder="<?php esc_attr_e( 'Form Title', 'smart-multistep-lead-forms' ); ?>" value="<?php echo esc_attr( $existing_form_data['title'] ); ?>" />
-				<button class="button button-primary" id="smlf-save-form"><?php esc_html_e( 'Save Form', 'smart-multistep-lead-forms' ); ?></button>
+				<input type="text" id="smlf-form-title" placeholder="<?php echo esc_attr( $builder_i18n['form_title'] ); ?>" value="<?php echo esc_attr( $existing_form_data['title'] ); ?>" />
+				<button class="button button-primary" id="smlf-save-form"><?php echo esc_html( $builder_i18n['save_form'] ); ?></button>
 			</div>
 
 			<div id="smlf-steps-container">
 				<!-- Steps will be rendered here via JS -->
+			</div>
+
+			<div class="smlf-live-preview-panel">
+				<div class="smlf-live-preview-header">
+					<h2><?php echo esc_html( $builder_i18n['preview_title'] ); ?></h2>
+					<p><?php echo esc_html( $builder_i18n['preview_note'] ); ?></p>
+				</div>
+				<div id="smlf-builder-preview" class="smlf-builder-preview"></div>
 			</div>
 		</div>
 	</div>
