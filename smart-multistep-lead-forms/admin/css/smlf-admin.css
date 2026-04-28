@@ -319,6 +319,78 @@
 	max-width: 140px;
 }
 
+.smlf-email-template-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 16px;
+	margin-bottom: 16px;
+}
+
+.smlf-email-template-grid section {
+	padding: 16px;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	background: #fff;
+}
+
+.smlf-email-template-grid h3 {
+	margin-top: 0;
+}
+
+.smlf-email-template-grid label,
+.smlf-email-template-grid + label {
+	display: block;
+	margin-bottom: 12px;
+}
+
+.smlf-email-template-grid span,
+.smlf-email-template-grid + label span {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: 700;
+}
+
+.smlf-leads-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+}
+
+.smlf-lead-source,
+.smlf-lead-details {
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.smlf-lead-detail-panel {
+	margin-top: 8px;
+	padding: 10px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #fff;
+}
+
+.smlf-lead-detail-panel dl {
+	display: grid;
+	grid-template-columns: minmax(120px, 0.5fr) minmax(0, 1.5fr);
+	gap: 8px 12px;
+	margin: 0;
+}
+
+.smlf-lead-detail-panel dt,
+.smlf-lead-detail-panel dd {
+	margin: 0;
+	overflow-wrap: anywhere;
+}
+
+.smlf-lead-files {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-top: 8px;
+}
+
 #smlf-load-template {
 	display: block;
 	width: 100%;

@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.9] - 2026-04-28
+### Added
+- Configurable admin and customer email subjects, intro text, and footer text.
+- Branded HTML email design with automatic site logo/site icon support.
+- Form-language-aware notification emails.
+- Enhanced Interessenten page with full request details, file links, source page, search, filters, sorting, and inline lead status updates.
+- Source page tracking for partial and completed submissions.
+
 ## [1.2.8] - 2026-04-28
 ### Added
 - Multi-rule conditional logic controls in the form builder.

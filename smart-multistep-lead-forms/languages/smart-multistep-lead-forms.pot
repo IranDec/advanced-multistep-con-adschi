@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Smart MultiStep Lead Forms 1.2.8\n"
+"Project-Id-Version: Smart MultiStep Lead Forms 1.2.9\n"
 "Report-Msgid-Bugs-To: https://adschi.com\n"
 "POT-Creation-Date: 2024-05-30 00:00:00+00:00\n"
 "MIME-Version: 1.0\n"
@@ -54,6 +54,42 @@ msgid "Filter"
 msgstr ""
 
 msgid "Admin Notification Email"
+msgstr ""
+
+msgid "Email Templates"
+msgstr ""
+
+msgid "Admin email"
+msgstr ""
+
+msgid "Customer email"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Intro text"
+msgstr ""
+
+msgid "Footer text"
+msgstr ""
+
+msgid "Available placeholders: {site_name}, {form_title}, {lead_id}, {page_url}, {summary}"
+msgstr ""
+
+msgid "New lead from {form_title}"
+msgstr ""
+
+msgid "A new completed request has been submitted."
+msgstr ""
+
+msgid "We received your request"
+msgstr ""
+
+msgid "Thank you. We received your request and will contact you soon."
+msgstr ""
+
+msgid "This email was sent automatically after a form submission."
 msgstr ""
 
 msgid "Where should lead notifications be sent?"
@@ -336,6 +372,63 @@ msgid "Remove file"
 msgstr ""
 
 msgid "Request summary"
+msgstr ""
+
+msgid "Interessenten"
+msgstr ""
+
+msgid "Search leads"
+msgstr ""
+
+msgid "All Submission Types"
+msgstr ""
+
+msgid "Auto-saved"
+msgstr ""
+
+msgid "Sort by ID"
+msgstr ""
+
+msgid "Sort by date"
+msgstr ""
+
+msgid "Sort by form"
+msgstr ""
+
+msgid "Sort by lead status"
+msgstr ""
+
+msgid "Descending"
+msgstr ""
+
+msgid "Ascending"
+msgstr ""
+
+msgid "Form / Source"
+msgstr ""
+
+msgid "Submission"
+msgstr ""
+
+msgid "Contact"
+msgstr ""
+
+msgid "Request"
+msgstr ""
+
+msgid "Unknown source"
+msgstr ""
+
+msgid "View full request"
+msgstr ""
+
+msgid "Source page:"
+msgstr ""
+
+msgid "New request received"
+msgstr ""
+
+msgid "Thank you for your request"
 msgstr ""
 
 msgid "All Lead Statuses"

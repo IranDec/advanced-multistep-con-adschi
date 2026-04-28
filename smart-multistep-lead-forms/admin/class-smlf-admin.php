@@ -49,7 +49,7 @@ class SMLF_Admin {
 		$new_leads_count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM $table_name WHERE id > %d AND status='completed'", $last_viewed_lead ) );
 
 		$menu_title = __( 'Smart Forms', 'smart-multistep-lead-forms' );
-		$leads_title = __( 'Leads', 'smart-multistep-lead-forms' );
+		$leads_title = __( 'Interessenten', 'smart-multistep-lead-forms' );
 
 		if ( $new_leads_count > 0 ) {
 			$badge = ' <span class="update-plugins count-' . esc_attr($new_leads_count) . '"><span class="plugin-count">' . esc_html($new_leads_count) . '</span></span>';
@@ -87,7 +87,7 @@ class SMLF_Admin {
 
 		add_submenu_page(
 			'smlf-forms',
-			__( 'Leads', 'smart-multistep-lead-forms' ),
+			__( 'Interessenten', 'smart-multistep-lead-forms' ),
 			$leads_title,
 			'manage_options',
 			'smlf-leads',
@@ -115,6 +115,11 @@ class SMLF_Admin {
 
 	public function register_settings() {
 		register_setting( 'smlf_options_group', 'smlf_admin_email', array( 'sanitize_callback' => array( $this, 'sanitize_email_option' ) ) );
+		register_setting( 'smlf_options_group', 'smlf_email_admin_subject', array( 'sanitize_callback' => 'sanitize_text_field' ) );
+		register_setting( 'smlf_options_group', 'smlf_email_admin_intro', array( 'sanitize_callback' => 'sanitize_textarea_field' ) );
+		register_setting( 'smlf_options_group', 'smlf_email_user_subject', array( 'sanitize_callback' => 'sanitize_text_field' ) );
+		register_setting( 'smlf_options_group', 'smlf_email_user_intro', array( 'sanitize_callback' => 'sanitize_textarea_field' ) );
+		register_setting( 'smlf_options_group', 'smlf_email_footer_text', array( 'sanitize_callback' => 'sanitize_textarea_field' ) );
 		register_setting( 'smlf_options_group', 'smlf_enable_partial', array( 'sanitize_callback' => array( $this, 'sanitize_checkbox_option' ) ) );
 		register_setting( 'smlf_options_group', 'smlf_webhook_url', array( 'sanitize_callback' => 'esc_url_raw' ) );
 		register_setting( 'smlf_options_group', 'smlf_captcha_method', array( 'sanitize_callback' => array( $this, 'sanitize_captcha_method' ) ) );

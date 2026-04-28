@@ -16,6 +16,40 @@
 				</td>
 			</tr>
 			<tr valign="top">
+				<th scope="row"><?php esc_html_e( 'Email Templates', 'smart-multistep-lead-forms' ); ?></th>
+				<td>
+					<div class="smlf-email-template-grid">
+						<section>
+							<h3><?php esc_html_e( 'Admin email', 'smart-multistep-lead-forms' ); ?></h3>
+							<label>
+								<span><?php esc_html_e( 'Subject', 'smart-multistep-lead-forms' ); ?></span>
+								<input type="text" name="smlf_email_admin_subject" value="<?php echo esc_attr( get_option( 'smlf_email_admin_subject', __( 'New lead from {form_title}', 'smart-multistep-lead-forms' ) ) ); ?>" class="large-text">
+							</label>
+							<label>
+								<span><?php esc_html_e( 'Intro text', 'smart-multistep-lead-forms' ); ?></span>
+								<textarea name="smlf_email_admin_intro" rows="4" class="large-text"><?php echo esc_textarea( get_option( 'smlf_email_admin_intro', __( 'A new completed request has been submitted.', 'smart-multistep-lead-forms' ) ) ); ?></textarea>
+							</label>
+						</section>
+						<section>
+							<h3><?php esc_html_e( 'Customer email', 'smart-multistep-lead-forms' ); ?></h3>
+							<label>
+								<span><?php esc_html_e( 'Subject', 'smart-multistep-lead-forms' ); ?></span>
+								<input type="text" name="smlf_email_user_subject" value="<?php echo esc_attr( get_option( 'smlf_email_user_subject', __( 'We received your request', 'smart-multistep-lead-forms' ) ) ); ?>" class="large-text">
+							</label>
+							<label>
+								<span><?php esc_html_e( 'Intro text', 'smart-multistep-lead-forms' ); ?></span>
+								<textarea name="smlf_email_user_intro" rows="4" class="large-text"><?php echo esc_textarea( get_option( 'smlf_email_user_intro', __( 'Thank you. We received your request and will contact you soon.', 'smart-multistep-lead-forms' ) ) ); ?></textarea>
+							</label>
+						</section>
+					</div>
+					<label>
+						<span><?php esc_html_e( 'Footer text', 'smart-multistep-lead-forms' ); ?></span>
+						<textarea name="smlf_email_footer_text" rows="3" class="large-text"><?php echo esc_textarea( get_option( 'smlf_email_footer_text', __( 'This email was sent automatically after a form submission.', 'smart-multistep-lead-forms' ) ) ); ?></textarea>
+					</label>
+					<p class="description"><?php esc_html_e( 'Available placeholders: {site_name}, {form_title}, {lead_id}, {page_url}, {summary}', 'smart-multistep-lead-forms' ); ?></p>
+				</td>
+			</tr>
+			<tr valign="top">
 				<th scope="row"><?php esc_html_e( 'Enable Partial Lead Saving', 'smart-multistep-lead-forms' ); ?></th>
 				<td>
 					<input type="checkbox" name="smlf_enable_partial" value="1" <?php checked( 1, get_option( 'smlf_enable_partial', 1 ), true ); ?> />

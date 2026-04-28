@@ -4,7 +4,7 @@ Tags: forms, multistep, ajax, leads, drag and drop
 Requires at least: 5.9
 Requires PHP: 7.4
 Tested up to: 6.9.1
-Stable tag: 1.2.8
+Stable tag: 1.2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,7 @@ Features:
 * AJAX final submission with server-side captcha verification.
 * Captcha options: none, custom checkbox, Google reCAPTCHA v2/v3, and Cloudflare Turnstile.
 * Admin and user email notifications with email logs.
+* Configurable branded email templates with automatic site logo support.
 * Webhook delivery for partial and completed leads.
 * CSV export for leads with nonce and capability checks.
 * RTL and translation-file support.
@@ -49,6 +50,7 @@ Features:
 == Settings ==
 
 * Admin Notification Email: address that receives completed lead notifications.
+* Email Templates: customize admin/customer email subjects, intro text, footer text, and placeholders.
 * Enable Partial Lead Saving: saves started/partial leads before final submit.
 * Webhook URL: receives JSON payloads for `smlf_lead_partial` and `smlf_lead_completed`.
 * Anti-bot / Captcha Method: choose none, custom checkbox, reCAPTCHA v2/v3, or Turnstile.
@@ -72,6 +74,13 @@ Yes, the plugin loads RTL styles when WordPress is running in RTL mode.
 Yes. CSV export requires `manage_options` and a valid export nonce.
 
 == Changelog ==
+
+= 1.2.9 =
+* Added configurable admin and customer email templates.
+* Added branded HTML email layout with automatic site logo/site icon support.
+* Added form-language-aware notification emails.
+* Enhanced Interessenten with full request details, files, source page, search, filters, sorting, and inline lead status updates.
+* Added source page tracking for submissions.
 
 = 1.2.8 =
 * Added multi-rule conditional logic controls in the form builder.

@@ -29,6 +29,11 @@ foreach ( $tables as $table ) {
 
 $options = array(
 	'smlf_admin_email',
+	'smlf_email_admin_subject',
+	'smlf_email_admin_intro',
+	'smlf_email_user_subject',
+	'smlf_email_user_intro',
+	'smlf_email_footer_text',
 	'smlf_enable_partial',
 	'smlf_webhook_url',
 	'smlf_captcha_method',
