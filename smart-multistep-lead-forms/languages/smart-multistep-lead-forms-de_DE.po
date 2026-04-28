@@ -119,3 +119,123 @@ msgstr "Danke!"
 
 msgid "Your submission has been received."
 msgstr "Ihre Einreichung ist eingegangen."
+
+msgid "Prospects"
+msgstr "Interessenten"
+
+msgid "Search leads"
+msgstr "Interessenten suchen"
+
+msgid "All Submission Types"
+msgstr "Alle Übermittlungstypen"
+
+msgid "Auto-saved"
+msgstr "Automatisch gespeichert"
+
+msgid "All Lead Statuses"
+msgstr "Alle Interessenten-Status"
+
+msgid "Lead Status"
+msgstr "Interessenten-Status"
+
+msgid "New"
+msgstr "Neu"
+
+msgid "Contacted"
+msgstr "Kontaktiert"
+
+msgid "Qualified"
+msgstr "Qualifiziert"
+
+msgid "Won"
+msgstr "Gewonnen"
+
+msgid "Lost"
+msgstr "Verloren"
+
+msgid "Sort by ID"
+msgstr "Nach ID sortieren"
+
+msgid "Sort by date"
+msgstr "Nach Datum sortieren"
+
+msgid "Sort by form"
+msgstr "Nach Formular sortieren"
+
+msgid "Sort by lead status"
+msgstr "Nach Interessenten-Status sortieren"
+
+msgid "Descending"
+msgstr "Absteigend"
+
+msgid "Ascending"
+msgstr "Aufsteigend"
+
+msgid "Form / Source"
+msgstr "Formular / Quelle"
+
+msgid "Submission"
+msgstr "Übermittlung"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Request"
+msgstr "Anfrage"
+
+msgid "Unknown source"
+msgstr "Unbekannte Quelle"
+
+msgid "View full request"
+msgstr "Vollständige Anfrage anzeigen"
+
+msgid "No leads found."
+msgstr "Keine Interessenten gefunden."
+
+msgid "Form #%d"
+msgstr "Formular #%d"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Delete this form? Existing leads will be kept."
+msgstr "Dieses Formular löschen? Bestehende Interessenten bleiben erhalten."
+
+msgid "Could not delete form."
+msgstr "Formular konnte nicht gelöscht werden."
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Shortcode"
+msgstr "Shortcode"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "No forms found."
+msgstr "Keine Formulare gefunden."
+
+msgid "Email Templates"
+msgstr "E-Mail-Vorlagen"
+
+msgid "Admin email"
+msgstr "Admin-E-Mail"
+
+msgid "Customer email"
+msgstr "Kunden-E-Mail"
+
+msgid "Subject"
+msgstr "Betreff"
+
+msgid "Intro text"
+msgstr "Einleitungstext"
+
+msgid "Footer text"
+msgstr "Footer-Text"
+
+msgid "Source page:"
+msgstr "Quellseite:"

@@ -22,3 +22,174 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
+
+msgid "Smart Forms"
+msgstr "فرم‌های هوشمند"
+
+msgid "Forms"
+msgstr "فرم‌ها"
+
+msgid "Add New Form"
+msgstr "افزودن فرم جدید"
+
+msgid "Prospects"
+msgstr "متقاضیان"
+
+msgid "Settings"
+msgstr "تنظیمات"
+
+msgid "Email Logs"
+msgstr "گزارش ایمیل‌ها"
+
+msgid "Export to CSV"
+msgstr "خروجی CSV"
+
+msgid "Search leads"
+msgstr "جستجوی متقاضیان"
+
+msgid "All Forms"
+msgstr "همه فرم‌ها"
+
+msgid "All Submission Types"
+msgstr "همه نوع‌های ثبت"
+
+msgid "All Statuses"
+msgstr "همه وضعیت‌ها"
+
+msgid "Completed"
+msgstr "تکمیل‌شده"
+
+msgid "Auto-saved"
+msgstr "ذخیره خودکار"
+
+msgid "Partial Lead"
+msgstr "لید ناقص"
+
+msgid "Started"
+msgstr "شروع‌شده"
+
+msgid "All Lead Statuses"
+msgstr "همه وضعیت‌های لید"
+
+msgid "Lead Status"
+msgstr "وضعیت لید"
+
+msgid "New"
+msgstr "جدید"
+
+msgid "Contacted"
+msgstr "تماس گرفته شد"
+
+msgid "Qualified"
+msgstr "واجد شرایط"
+
+msgid "Won"
+msgstr "موفق"
+
+msgid "Lost"
+msgstr "از دست رفته"
+
+msgid "Sort by ID"
+msgstr "مرتب‌سازی بر اساس شناسه"
+
+msgid "Sort by date"
+msgstr "مرتب‌سازی بر اساس تاریخ"
+
+msgid "Sort by form"
+msgstr "مرتب‌سازی بر اساس فرم"
+
+msgid "Sort by lead status"
+msgstr "مرتب‌سازی بر اساس وضعیت لید"
+
+msgid "Descending"
+msgstr "نزولی"
+
+msgid "Ascending"
+msgstr "صعودی"
+
+msgid "Filter"
+msgstr "فیلتر"
+
+msgid "ID"
+msgstr "شناسه"
+
+msgid "Form / Source"
+msgstr "فرم / منبع"
+
+msgid "Submission"
+msgstr "ثبت"
+
+msgid "Contact"
+msgstr "اطلاعات تماس"
+
+msgid "Request"
+msgstr "درخواست"
+
+msgid "Date"
+msgstr "تاریخ"
+
+msgid "Unknown source"
+msgstr "منبع نامشخص"
+
+msgid "View full request"
+msgstr "مشاهده درخواست کامل"
+
+msgid "No leads found."
+msgstr "هیچ متقاضی‌ای پیدا نشد."
+
+msgid "Form #%d"
+msgstr "فرم #%d"
+
+msgid "Actions"
+msgstr "عملیات"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Delete this form? Existing leads will be kept."
+msgstr "این فرم حذف شود؟ لیدهای قبلی نگه داشته می‌شوند."
+
+msgid "Could not delete form."
+msgstr "امکان حذف فرم وجود نداشت."
+
+msgid "Title"
+msgstr "عنوان"
+
+msgid "Shortcode"
+msgstr "شورت‌کد"
+
+msgid "No forms found."
+msgstr "هیچ فرمی پیدا نشد."
+
+msgid "Admin Notification Email"
+msgstr "ایمیل اعلان مدیر"
+
+msgid "Email Templates"
+msgstr "قالب‌های ایمیل"
+
+msgid "Admin email"
+msgstr "ایمیل مدیر"
+
+msgid "Customer email"
+msgstr "ایمیل مشتری"
+
+msgid "Subject"
+msgstr "موضوع"
+
+msgid "Intro text"
+msgstr "متن شروع"
+
+msgid "Footer text"
+msgstr "متن پاورقی"
+
+msgid "Source page:"
+msgstr "صفحه منبع:"
+
+msgid "Recipient"
+msgstr "گیرنده"
+
+msgid "Status"
+msgstr "وضعیت"
+
+msgid "No email logs found."
+msgstr "هیچ گزارش ایمیلی پیدا نشد."
