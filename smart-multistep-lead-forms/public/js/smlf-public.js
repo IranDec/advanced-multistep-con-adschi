@@ -391,6 +391,7 @@ jQuery(document).ready(function($) {
 			requestData.append('action', 'smlf_save_partial');
 			requestData.append('form_id', formId);
 			requestData.append('lead_id', leadId || '');
+			requestData.append('page_url', window.location.href);
 			appendSerializedData(requestData);
 
 			$.ajax({
@@ -504,6 +505,7 @@ jQuery(document).ready(function($) {
 				requestData.append('lead_id', leadId || '');
 				requestData.append('captcha_token', token || verifiedCaptchaToken);
 				requestData.append('custom_verified', customState || customVerified);
+				requestData.append('page_url', window.location.href);
 				appendSerializedData(requestData);
 				appendFiles(requestData);
 

@@ -101,6 +101,7 @@ class SMLF_Ajax {
 		$structured_data = $this->sanitize_submission_data( isset( $_POST['data'] ) ? wp_unslash( $_POST['data'] ) : array() );
 		$email           = $this->extract_email( $structured_data );
 		$phone           = $this->extract_phone( $structured_data );
+		$referrer        = $this->get_request_referrer();
 
 		if ( '' === $email && '' === $phone ) {
 			wp_send_json_success();
@@ -126,9 +127,10 @@ class SMLF_Ajax {
 					'email'     => $email,
 					'phone'     => $phone,
 					'status'    => 'partial',
+					'referrer'  => $referrer,
 				),
 				array( 'id' => $lead_id ),
-				array( '%s', '%s', '%s', '%s' ),
+				array( '%s', '%s', '%s', '%s', '%s' ),
 				array( '%d' )
 			);
 		} else {
@@ -143,8 +145,9 @@ class SMLF_Ajax {
 					'lead_status' => 'new',
 					'ip_address' => $this->get_remote_ip(),
 					'user_agent' => $this->get_user_agent(),
+					'referrer'   => $referrer,
 				),
-				array( '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
+				array( '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
 			);
 			$lead_id = absint( $wpdb->insert_id );
 		}
@@ -177,6 +180,7 @@ class SMLF_Ajax {
 		}
 
 		$structured_data = $this->sanitize_submission_data( isset( $_POST['data'] ) ? wp_unslash( $_POST['data'] ) : array() );
+		$referrer        = $this->get_request_referrer();
 		$uploaded_files  = $this->handle_uploaded_files( $form );
 		if ( is_wp_error( $uploaded_files ) ) {
 			wp_send_json_error( array( 'message' => $uploaded_files->get_error_message() ), 400 );
@@ -200,9 +204,10 @@ class SMLF_Ajax {
 					'phone'        => $phone,
 					'status'       => 'completed',
 					'completed_at' => current_time( 'mysql' ),
+					'referrer'     => $referrer,
 				),
 				array( 'id' => $lead_id ),
-				array( '%s', '%s', '%s', '%s', '%s' ),
+				array( '%s', '%s', '%s', '%s', '%s', '%s' ),
 				array( '%d' )
 			);
 		} else {
@@ -217,9 +222,10 @@ class SMLF_Ajax {
 					'lead_status'  => 'new',
 					'ip_address'   => $this->get_remote_ip(),
 					'user_agent'   => $this->get_user_agent(),
+					'referrer'     => $referrer,
 					'completed_at' => current_time( 'mysql' ),
 				),
-				array( '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
+				array( '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
 			);
 			$lead_id = absint( $wpdb->insert_id );
 		}
@@ -719,6 +725,14 @@ class SMLF_Ajax {
 
 	private function get_user_agent() {
 		return isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
+	}
+
+	private function get_request_referrer() {
+		if ( isset( $_POST['page_url'] ) ) {
+			return esc_url_raw( wp_unslash( $_POST['page_url'] ) );
+		}
+
+		return isset( $_SERVER['HTTP_REFERER'] ) ? esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) : '';
 	}
 
 	private function create_captcha_pass_token() {
