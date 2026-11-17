@@ -1,388 +1,1560 @@
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Smart MultiStep Lead Forms 1.3.4\n"
-"Report-Msgid-Bugs-To: https://adschi.com\n"
-"POT-Creation-Date: 2024-05-30 00:00:00+00:00\n"
+"Project-Id-Version: Smart MultiStep Lead Forms 2.0.0\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Smart Forms"
-msgstr "Schlaue Formulare"
-
-msgid "Forms"
-msgstr "Formulare"
-
-msgid "Add New"
-msgstr "Neu hinzufügen"
-
-msgid "Add New Form"
-msgstr "Neues Formular hinzufügen"
-
-msgid "Leads"
-msgstr "Interessenten"
-
-msgid "Settings"
-msgstr "Einstellungen"
-
-msgid "Email Logs"
-msgstr "E-Mail Protokolle"
-
-msgid "Export to CSV"
-msgstr "Als CSV exportieren"
-
-msgid "All Forms"
-msgstr "Alle Formulare"
-
-msgid "All Statuses"
-msgstr "Alle Status"
-
-msgid "Completed"
-msgstr "Abgeschlossen"
-
-msgid "Partial Lead"
-msgstr "Teilweiser Lead"
-
-msgid "Started"
-msgstr "Gestartet"
-
-msgid "Filter"
-msgstr "Filtern"
-
-msgid "Admin Notification Email"
-msgstr "Admin-Benachrichtigungs-E-Mail"
-
-msgid "Where should lead notifications be sent?"
-msgstr "Wohin sollen Lead-Benachrichtigungen gesendet werden?"
-
-msgid "Enable Partial Lead Saving"
-msgstr "Teilweises Speichern von Leads aktivieren"
-
-msgid "Save leads instantly when email/phone is typed."
-msgstr "Leads sofort speichern, wenn E-Mail/Telefon eingegeben wird."
-
-msgid "Webhook URL"
-msgstr "Webhook-URL"
-
-msgid "Send lead data to Zapier, Make, etc."
-msgstr "Lead-Daten an Zapier, Make usw. senden."
-
-msgid "Anti-bot / Captcha Method"
-msgstr "Anti-Bot / Captcha-Methode"
-
-msgid "None"
-msgstr "Keine"
-
-msgid "Custom Checkbox (Default)"
-msgstr "Benutzerdefinierte Checkbox (Standard)"
-
-msgid "Google reCAPTCHA v2"
-msgstr "Google reCAPTCHA v2"
-
-msgid "Google reCAPTCHA v3"
-msgstr "Google reCAPTCHA v3"
-
-msgid "Cloudflare Turnstile"
-msgstr "Cloudflare Turnstile"
-
-msgid "Captcha Site Key"
-msgstr "Captcha Website-Schlüssel"
-
-msgid "Captcha Secret Key"
-msgstr "Captcha Geheimer Schlüssel"
-
-msgid "Security Check"
-msgstr "Sicherheitsprüfung"
-
-msgid "Please verify you are human."
-msgstr "Bitte bestätigen Sie, dass Sie ein Mensch sind."
-
-msgid "I am not a robot"
-msgstr "Ich bin kein Roboter"
-
-msgid "Verify"
-msgstr "Überprüfen"
-
-msgid "Back"
-msgstr "Zurück"
-
-msgid "Next"
-msgstr "Weiter"
-
-msgid "Submit"
-msgstr "Absenden"
-
-msgid "Thank you!"
-msgstr "Danke!"
-
-msgid "Your submission has been received."
-msgstr "Ihre Einreichung ist eingegangen."
-
-msgid "Prospects"
-msgstr "Interessenten"
-
-msgid "Prospects overview"
-msgstr "Interessenten-Übersicht"
-
-msgid "Total Requests"
-msgstr "Anfragen insgesamt"
-
-msgid "Completed Requests"
-msgstr "Abgeschlossene Anfragen"
-
-msgid "Auto-saved Requests"
-msgstr "Automatisch gespeicherte Anfragen"
-
-msgid "New Today"
-msgstr "Heute neu"
-
-msgid "%s%% still in progress"
-msgstr "%s%% noch in Bearbeitung"
-
-msgid "Requests created today"
-msgstr "Heute erstellte Anfragen"
-
-msgid "Search leads"
-msgstr "Interessenten suchen"
-
-msgid "All Submission Types"
-msgstr "Alle Übermittlungstypen"
-
-msgid "Auto-saved"
-msgstr "Automatisch gespeichert"
-
-msgid "All Lead Statuses"
-msgstr "Alle Interessenten-Status"
-
-msgid "Lead Status"
-msgstr "Interessenten-Status"
-
-msgid "New"
-msgstr "Neu"
-
-msgid "Contacted"
-msgstr "Kontaktiert"
-
-msgid "Qualified"
-msgstr "Qualifiziert"
-
-msgid "Won"
-msgstr "Gewonnen"
-
-msgid "Lost"
-msgstr "Verloren"
-
-msgid "Sort by ID"
-msgstr "Nach ID sortieren"
-
-msgid "Sort by date"
-msgstr "Nach Datum sortieren"
-
-msgid "Sort by form"
-msgstr "Nach Formular sortieren"
-
-msgid "Sort by lead status"
-msgstr "Nach Interessenten-Status sortieren"
-
-msgid "Descending"
-msgstr "Absteigend"
-
-msgid "Ascending"
-msgstr "Aufsteigend"
-
-msgid "Form / Source"
-msgstr "Formular / Quelle"
-
-msgid "Submission"
-msgstr "Übermittlung"
-
-msgid "Contact"
-msgstr "Kontakt"
-
-msgid "Request"
-msgstr "Anfrage"
-
-msgid "Unknown source"
-msgstr "Unbekannte Quelle"
-
-msgid "View full request"
-msgstr "Vollständige Anfrage anzeigen"
-
-msgid "No leads found."
-msgstr "Keine Interessenten gefunden."
-
-msgid "Form #%d"
-msgstr "Formular #%d"
-
-msgid "Actions"
-msgstr "Aktionen"
-
-msgid "Delete"
-msgstr "Löschen"
-
-msgid "Delete selected"
-msgstr "Ausgewählte löschen"
-
-msgid "Delete all requests"
-msgstr "Alle Anfragen löschen"
-
-msgid "Delete the selected requests?"
-msgstr "Ausgewählte Anfragen löschen?"
-
-msgid "Delete all requests? This cannot be undone."
-msgstr "Alle Anfragen löschen? Dies kann nicht rückgängig gemacht werden."
-
-msgid "Select at least one request to delete."
-msgstr "Wählen Sie mindestens eine Anfrage zum Löschen aus."
-
-msgid "Select all requests"
-msgstr "Alle Anfragen auswählen"
-
-msgid "Select request #%d"
-msgstr "Anfrage #%d auswählen"
-
-msgid "%d selected"
-msgstr "%d ausgewählt"
-
-msgid "Could not delete requests."
-msgstr "Anfragen konnten nicht gelöscht werden."
-
-msgid "Delete this form? Existing leads will be kept."
-msgstr "Dieses Formular löschen? Bestehende Interessenten bleiben erhalten."
-
-msgid "Could not delete form."
-msgstr "Formular konnte nicht gelöscht werden."
-
-msgid "Title"
-msgstr "Titel"
-
-msgid "Shortcode"
-msgstr "Shortcode"
-
-msgid "Date"
-msgstr "Datum"
-
-msgid "No forms found."
-msgstr "Keine Formulare gefunden."
-
-msgid "Email Templates"
-msgstr "E-Mail-Vorlagen"
-
-msgid "Admin email"
-msgstr "Admin-E-Mail"
-
-msgid "Customer email"
-msgstr "Kunden-E-Mail"
-
-msgid "Subject"
-msgstr "Betreff"
-
-msgid "Intro text"
-msgstr "Einleitungstext"
-
-msgid "Footer text"
-msgstr "Footer-Text"
-
-msgid "Source page:"
-msgstr "Quellseite:"
-
-msgid "Forms overview"
-msgstr "Formularübersicht"
-
-msgid "Total Forms"
-msgstr "Formulare gesamt"
-
-msgid "%s published"
-msgstr "%s veröffentlicht"
-
-msgid "Total Leads"
-msgstr "Interessenten gesamt"
-
-msgid "All captured records"
-msgstr "Alle erfassten Einträge"
-
-msgid "Completed Leads"
-msgstr "Abgeschlossene Interessenten"
-
-msgid "%s%% completion rate"
-msgstr "%s%% Abschlussrate"
-
-msgid "Partial Leads"
-msgstr "Teilweise Interessenten"
-
-msgid "Saved before final submit"
-msgstr "Vor dem finalen Absenden gespeichert"
-
-msgid "Lead Statuses"
-msgstr "Interessenten-Status"
-
-msgid "Enter one status per line in key:Label format. Example: contacted:Contacted"
-msgstr "Geben Sie einen Status pro Zeile im Format key:Label ein. Beispiel: contacted:Kontaktiert"
-
-msgid "Back to Prospects"
-msgstr "Zurück zu Interessenten"
-
-msgid "Prospect #%d"
-msgstr "Interessent #%d"
-
-msgid "Request Details"
-msgstr "Anfragedetails"
-
-msgid "Source and Contact"
-msgstr "Quelle und Kontakt"
-
-msgid "Email"
+"X-Domain: smart-multistep-lead-forms\n"
+
+#. Plugin Name of the plugin
+#: smart-multistep-lead-forms.php
+msgid "Smart MultiStep Lead Forms"
+msgstr "Smart MultiStep Lead Forms"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: smart-multistep-lead-forms.php
+msgid "https://adschi.com"
+msgstr "https://adschi.com"
+
+#. Description of the plugin
+#: smart-multistep-lead-forms.php
+msgid ""
+"Visual multi-step lead forms: drag-and-drop builder with conditional logic, "
+"fast accessible frontend, lead CRM with notes and follow-ups, partial-lead "
+"recovery, conversion funnel, signed webhooks and abuse-safe e-mails."
+msgstr ""
+"Visuelle mehrstufige Anfrageformulare: Drag-and-drop-Editor mit "
+"Bedingungslogik, schnelles barrierearmes Frontend, Lead-CRM mit Notizen und "
+"Wiedervorlagen, Rückgewinnung abgebrochener Anfragen, Conversion-Funnel, "
+"signierte Webhooks und missbrauchssichere E-Mails."
+
+#. Author of the plugin
+#: smart-multistep-lead-forms.php
+msgid "Mohammad Babaei"
+msgstr "Mohammad Babaei"
+
+#: admin/views/builder.php:22
+msgid "Text"
+msgstr "Text"
+
+#: admin/views/builder.php:23
+msgid "Long text"
+msgstr "Langer Text"
+
+#: admin/views/builder.php:24 admin/views/lead.php:36
+msgid "E-mail"
 msgstr "E-Mail"
 
+#: admin/views/builder.php:25 includes/class-smlf-admin.php:327
 msgid "Phone"
 msgstr "Telefon"
 
-msgid "Source page"
-msgstr "Quellseite"
+#: admin/views/builder.php:26
+msgid "Choice"
+msgstr "Auswahl"
 
-msgid "IP address"
-msgstr "IP-Adresse"
+#: admin/views/builder.php:27
+msgid "Number"
+msgstr "Zahl"
 
-msgid "Created at"
-msgstr "Erstellt am"
+#: admin/views/builder.php:28
+msgid "Slider"
+msgstr "Schieberegler"
 
-msgid "Completed at"
-msgstr "Abgeschlossen am"
+#: admin/views/builder.php:29
+msgid "Rating"
+msgstr "Bewertung"
 
-msgid "Internal Notes"
-msgstr "Interne Notizen"
+#: admin/views/builder.php:30 admin/views/emails.php:26
+msgid "Date"
+msgstr "Datum"
 
-msgid "Save Notes"
-msgstr "Notizen speichern"
+#: admin/views/builder.php:31
+msgid "Address"
+msgstr "Adresse"
 
-msgid "Could not save notes."
-msgstr "Notizen konnten nicht gespeichert werden."
+#: admin/views/builder.php:32
+msgid "Website"
+msgstr "Website"
 
-msgid "Date from"
-msgstr "Datum von"
+#: admin/views/builder.php:33
+msgid "File upload"
+msgstr "Datei-Upload"
 
-msgid "Date to"
-msgstr "Datum bis"
+#: admin/views/builder.php:34
+msgid "Consent"
+msgstr "Einwilligung"
 
-msgid "Export columns"
-msgstr "Exportspalten"
+#: admin/views/builder.php:35
+msgid "Text block"
+msgstr "Textblock"
 
+#: admin/views/builder.php:36
+msgid "Hidden (UTM)"
+msgstr "Versteckt (UTM)"
+
+#: admin/views/builder.php:40 admin/views/forms.php:17
+#: includes/class-smlf-admin.php:24 includes/class-smlf-admin.php:35
+msgid "Forms"
+msgstr "Formulare"
+
+#: admin/views/builder.php:40
+msgid "Form name"
+msgstr "Formularname"
+
+#: admin/views/builder.php:40 admin/views/lead.php:144
+msgid "Save"
+msgstr "Speichern"
+
+#: admin/views/builder.php:41
+msgid "Saving…"
+msgstr "Speichert …"
+
+#: admin/views/builder.php:41
+msgid "Saved"
+msgstr "Gespeichert"
+
+#: admin/views/builder.php:41
+msgid "Unsaved changes"
+msgstr "Ungespeicherte Änderungen"
+
+#: admin/views/builder.php:42
+msgid "Could not save"
+msgstr "Speichern fehlgeschlagen"
+
+#: admin/views/builder.php:42 admin/views/forms.php:32
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: admin/views/builder.php:42 admin/views/forms.php:32
+msgid "Draft"
+msgstr "Entwurf"
+
+#: admin/views/builder.php:43
+msgid "Preview"
+msgstr "Vorschau"
+
+#: admin/views/builder.php:43 admin/views/lead.php:112
+msgid "Desktop"
+msgstr "Desktop"
+
+#: admin/views/builder.php:43 admin/views/lead.php:112
+msgid "Mobile"
+msgstr "Mobil"
+
+#: admin/views/builder.php:43
+msgid "Close"
+msgstr "Schließen"
+
+#: admin/views/builder.php:44
+msgid "Steps"
+msgstr "Schritte"
+
+#: admin/views/builder.php:44
+msgid "Add step"
+msgstr "Schritt hinzufügen"
+
+#: admin/views/builder.php:44 admin/views/builder.php:46
+msgid "Step"
+msgstr "Schritt"
+
+#: admin/views/builder.php:45
+msgid "Add a field"
+msgstr "Feld hinzufügen"
+
+#: admin/views/builder.php:45
+msgid "This step is empty. Click a field type on the left to add it."
+msgstr ""
+"Dieser Schritt ist leer. Klicken Sie links auf einen Feldtyp, um ihn "
+"hinzuzufügen."
+
+#: admin/views/builder.php:46
+msgid "Field"
+msgstr "Feld"
+
+#: admin/views/builder.php:46 admin/views/settings.php:18
+#: includes/class-smlf-admin.php:36
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: admin/views/builder.php:47
+msgid "Select a field in the middle to edit it."
+msgstr "Wählen Sie in der Mitte ein Feld aus, um es zu bearbeiten."
+
+#: admin/views/builder.php:48
+msgid "Question / label"
+msgstr "Frage / Beschriftung"
+
+#: admin/views/builder.php:48
+msgid "Field key"
+msgstr "Feldschlüssel"
+
+#: admin/views/builder.php:48
+msgid "Used in exports, webhooks and conditions."
+msgstr "Wird in Exporten, Webhooks und Bedingungen verwendet."
+
+#: admin/views/builder.php:49
+msgid "Placeholder"
+msgstr "Platzhalter"
+
+#: admin/views/builder.php:49
+msgid "Help text"
+msgstr "Hilfetext"
+
+#: admin/views/builder.php:49
+msgid "Required"
+msgstr "Pflichtfeld"
+
+#: admin/views/builder.php:50
+msgid "Width"
+msgstr "Breite"
+
+#: admin/views/builder.php:50
+msgid "Full"
+msgstr "Voll"
+
+#: admin/views/builder.php:50
+msgid "Half"
+msgstr "Halb"
+
+#: admin/views/builder.php:50
+msgid "Third"
+msgstr "Drittel"
+
+#: admin/views/builder.php:51
+msgid "Default value"
+msgstr "Standardwert"
+
+#: admin/views/builder.php:51
+msgid "Options"
+msgstr "Optionen"
+
+#: admin/views/builder.php:51
+msgid "Add option"
+msgstr "Option hinzufügen"
+
+#: admin/views/builder.php:52
+msgid "Label"
+msgstr "Beschriftung"
+
+#: admin/views/builder.php:52
+msgid "Value"
+msgstr "Wert"
+
+#: admin/views/builder.php:52
+msgid "Icon"
+msgstr "Symbol"
+
+#: admin/views/builder.php:52
+msgid "Image URL"
+msgstr "Bild-URL"
+
+#: admin/views/builder.php:53
+msgid "Display"
+msgstr "Darstellung"
+
+#: admin/views/builder.php:53
+msgid "Cards"
+msgstr "Karten"
+
+#: admin/views/builder.php:53
+msgid "Buttons"
+msgstr "Buttons"
+
+#: admin/views/builder.php:53
+msgid "List"
+msgstr "Liste"
+
+#: admin/views/builder.php:53
+msgid "Dropdown"
+msgstr "Dropdown"
+
+#: admin/views/builder.php:54
+msgid "Several answers allowed"
+msgstr "Mehrere Antworten erlaubt"
+
+#: admin/views/builder.php:54
+msgid "Minimum"
+msgstr "Minimum"
+
+#: admin/views/builder.php:54
+msgid "Maximum"
+msgstr "Maximum"
+
+#: admin/views/builder.php:55
+msgid "Step size"
+msgstr "Schrittweite"
+
+#: admin/views/builder.php:55
+msgid "Unit"
+msgstr "Einheit"
+
+#: admin/views/builder.php:55
+msgid "Stars"
+msgstr "Sterne"
+
+#: admin/views/builder.php:56
+msgid "Allowed types"
+msgstr "Erlaubte Typen"
+
+#: admin/views/builder.php:56
+msgid "Max. files"
+msgstr "Max. Dateien"
+
+#: admin/views/builder.php:57
+msgid "Consent text"
+msgstr "Einwilligungstext"
+
+#: admin/views/builder.php:57
+msgid "Link text"
+msgstr "Linktext"
+
+#: admin/views/builder.php:57
+msgid "Link URL"
+msgstr "Link-URL"
+
+#: admin/views/builder.php:58
+msgid "Text (HTML allowed)"
+msgstr "Text (HTML erlaubt)"
+
+#: admin/views/builder.php:58
+msgid "Value from"
+msgstr "Wert aus"
+
+#: admin/views/builder.php:58 admin/views/builder.php:59
+msgid "URL parameter"
+msgstr "URL-Parameter"
+
+#: admin/views/builder.php:59
+msgid "Page URL"
+msgstr "Seiten-URL"
+
+#: admin/views/builder.php:59
+msgid "Referrer"
+msgstr "Referrer"
+
+#: admin/views/builder.php:59
+msgid "Fixed value"
+msgstr "Fester Wert"
+
+#: admin/views/builder.php:60
+msgid "Show this field only if…"
+msgstr "Dieses Feld nur zeigen, wenn …"
+
+#: admin/views/builder.php:60
+msgid "Always shown."
+msgstr "Wird immer angezeigt."
+
+#: admin/views/builder.php:60
+msgid "Add condition"
+msgstr "Bedingung hinzufügen"
+
+#: admin/views/builder.php:61
+msgid "all conditions are true"
+msgstr "alle Bedingungen zutreffen"
+
+#: admin/views/builder.php:61
+msgid "any condition is true"
+msgstr "eine Bedingung zutrifft"
+
+#: admin/views/builder.php:62
+msgid "is"
+msgstr "ist"
+
+#: admin/views/builder.php:62
+msgid "is not"
+msgstr "ist nicht"
+
+#: admin/views/builder.php:62
+msgid "contains"
+msgstr "enthält"
+
+#: admin/views/builder.php:62
+msgid "does not contain"
+msgstr "enthält nicht"
+
+#: admin/views/builder.php:63
+msgid "is empty"
+msgstr "ist leer"
+
+#: admin/views/builder.php:63
+msgid "is filled"
+msgstr "ist ausgefüllt"
+
+#: admin/views/builder.php:63
+msgid "greater than"
+msgstr "größer als"
+
+#: admin/views/builder.php:63
+msgid "less than"
+msgstr "kleiner als"
+
+#: admin/views/builder.php:64
+msgid "Step title"
+msgstr "Schritttitel"
+
+#: admin/views/builder.php:64
+msgid "Description"
+msgstr "Beschreibung"
+
+#: admin/views/builder.php:65
+msgid "Jumps"
+msgstr "Sprünge"
+
+#: admin/views/builder.php:65
+msgid "The first matching rule decides where the visitor goes next."
+msgstr ""
+"Die erste zutreffende Regel entscheidet, wohin der Besucher als Nächstes "
+"geht."
+
+#: admin/views/builder.php:65
+msgid "Add jump"
+msgstr "Sprung hinzufügen"
+
+#: admin/views/builder.php:66
+msgid "If"
+msgstr "Wenn"
+
+#: admin/views/builder.php:66
+msgid "go to"
+msgstr "gehe zu"
+
+#: admin/views/builder.php:66
+msgid "Otherwise"
+msgstr "Sonst"
+
+#: admin/views/builder.php:67
+msgid "next step in the list"
+msgstr "nächster Schritt der Liste"
+
+#: admin/views/builder.php:67
+msgid "submit the form"
+msgstr "Formular absenden"
+
+#: admin/views/builder.php:68
+msgid ""
+"Dead end: only show this step's text and a \"start over\" button (e.g. \"we "
+"cannot help with this\")"
+msgstr ""
+"Sackgasse: nur den Text dieses Schritts und einen „Neu starten“-Button "
+"zeigen (z. B. „dabei können wir leider nicht helfen“)"
+
+#: admin/views/builder.php:69
+msgid "Delete step"
+msgstr "Schritt löschen"
+
+#: admin/views/builder.php:69
+msgid "Delete this step with all its fields?"
+msgstr "Diesen Schritt mit allen Feldern löschen?"
+
+#: admin/views/builder.php:70 admin/views/forms.php:48
+msgid "Duplicate"
+msgstr "Duplizieren"
+
+#: admin/views/builder.php:70
+msgid "Delete"
+msgstr "Löschen"
+
+#: admin/views/builder.php:70
+msgid "Move to step"
+msgstr "In Schritt verschieben"
+
+#: admin/views/builder.php:71
+msgid "conditional"
+msgstr "bedingt"
+
+#: admin/views/builder.php:71
+msgid "jumps"
+msgstr "Sprünge"
+
+#: admin/views/builder.php:71 admin/views/forms.php:40
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: admin/views/builder.php:72
+msgid "Design"
+msgstr "Design"
+
+#: admin/views/builder.php:72
+msgid "Behaviour"
+msgstr "Verhalten"
+
+#: admin/views/builder.php:72
+msgid "E-mails"
+msgstr "E-Mails"
+
+#: admin/views/builder.php:72 admin/views/settings.php:40
+msgid "Spam protection"
+msgstr "Spamschutz"
+
+#: admin/views/builder.php:72
+msgid "Webhook"
+msgstr "Webhook"
+
+#: admin/views/builder.php:73
+msgid "Theme"
+msgstr "Theme"
+
+#: admin/views/builder.php:73
+msgid "Light"
+msgstr "Hell"
+
+#: admin/views/builder.php:73
+msgid "Dark"
+msgstr "Dunkel"
+
+#: admin/views/builder.php:73
+msgid "Glass"
+msgstr "Glas"
+
+#: admin/views/builder.php:73
+msgid "Minimal"
+msgstr "Minimal"
+
+#: admin/views/builder.php:74
+msgid "Main colour"
+msgstr "Hauptfarbe"
+
+#: admin/views/builder.php:74
+msgid "Accent colour"
+msgstr "Akzentfarbe"
+
+#: admin/views/builder.php:74
+msgid "Background"
+msgstr "Hintergrund"
+
+#: admin/views/builder.php:74
+msgid "Text colour"
+msgstr "Textfarbe"
+
+#: admin/views/builder.php:75
+msgid "Corner radius"
+msgstr "Eckenradius"
+
+#: admin/views/builder.php:75
+msgid "Max. width (px)"
+msgstr "Max. Breite (px)"
+
+#: admin/views/builder.php:75
+msgid "Font (CSS)"
+msgstr "Schrift (CSS)"
+
+#: admin/views/builder.php:76
+msgid "Progress"
+msgstr "Fortschritt"
+
+#: admin/views/builder.php:76
+msgid "Step dots"
+msgstr "Schrittpunkte"
+
+#: admin/views/builder.php:76
+msgid "Bar"
+msgstr "Balken"
+
+#: admin/views/builder.php:76
+msgid "Hidden"
+msgstr "Ausgeblendet"
+
+#: admin/views/builder.php:77
+msgid "Animations"
+msgstr "Animationen"
+
+#: admin/views/builder.php:77
+msgid ""
+"Remember answers (\"continue where you left off\") and save unfinished leads"
+msgstr ""
+"Antworten merken („dort weitermachen, wo man aufgehört hat“) und "
+"unvollständige Anfragen speichern"
+
+#: admin/views/builder.php:78
+msgid "Show a review page before sending"
+msgstr "Vor dem Absenden eine Übersicht zeigen"
+
+#: admin/views/builder.php:78
+msgid "Language of the form texts"
+msgstr "Sprache der Formulartexte"
+
+#: admin/views/builder.php:78
+msgid "Site language"
+msgstr "Sprache der Website"
+
+#: admin/views/builder.php:79
+msgid "Thank-you title"
+msgstr "Danke-Titel"
+
+#: admin/views/builder.php:79
+msgid "Thank-you message"
+msgstr "Danke-Nachricht"
+
+#: admin/views/builder.php:79
+msgid "Or redirect to (URL)"
+msgstr "Oder weiterleiten zu (URL)"
+
+#: admin/views/builder.php:80
+msgid "Button \"Next\""
+msgstr "Button „Weiter“"
+
+#: admin/views/builder.php:80
+msgid "Button \"Back\""
+msgstr "Button „Zurück“"
+
+#: admin/views/builder.php:80
+msgid "Button \"Send\""
+msgstr "Button „Senden“"
+
+#: admin/views/builder.php:81
+msgid "E-mail every new lead to the team"
+msgstr "Jede neue Anfrage per E-Mail an das Team senden"
+
+#: admin/views/builder.php:81
+msgid "Recipients (comma separated, empty = default from Settings)"
+msgstr ""
+"Empfänger (durch Komma getrennt, leer = Standard aus den Einstellungen)"
+
+#: admin/views/builder.php:81
+msgid "Subject for the team"
+msgstr "Betreff für das Team"
+
+#: admin/views/builder.php:82
+msgid "Send the visitor a confirmation"
+msgstr "Dem Besucher eine Bestätigung senden"
+
+#: admin/views/builder.php:82
+msgid "Confirmation subject"
+msgstr "Betreff der Bestätigung"
+
+#: admin/views/builder.php:82
+msgid "Confirmation text"
+msgstr "Text der Bestätigung"
+
+#: admin/views/builder.php:83
+msgid ""
+"For security the confirmation never contains what the visitor typed. "
+"Placeholders: {site_name}, {form_title}, {date}."
+msgstr ""
+"Aus Sicherheitsgründen enthält die Bestätigung nie, was der Besucher "
+"eingegeben hat. Platzhalter: {site_name}, {form_title}, {date}."
+
+#: admin/views/builder.php:84
+msgid "Captcha for this form"
+msgstr "Captcha für dieses Formular"
+
+#: admin/views/builder.php:84
+msgid "As in the global settings"
+msgstr "Wie in den globalen Einstellungen"
+
+#: admin/views/builder.php:84 admin/views/settings.php:44
+msgid "None"
+msgstr "Keins"
+
+#: admin/views/builder.php:85
+msgid "Webhook URL (Zapier, Make, n8n …)"
+msgstr "Webhook-URL (Zapier, Make, n8n …)"
+
+#: admin/views/builder.php:85
+msgid "Signing secret"
+msgstr "Signatur-Schlüssel"
+
+#: admin/views/builder.php:85
+msgid "Generate"
+msgstr "Erzeugen"
+
+#: admin/views/builder.php:86
+msgid "Also send unfinished leads"
+msgstr "Auch unvollständige Anfragen senden"
+
+#: admin/views/builder.php:86
+msgid ""
+"Each request carries the header X-SMLF-Signature: sha256=HMAC(body, secret)."
+msgstr ""
+"Jede Anfrage enthält den Header X-SMLF-Signature: sha256=HMAC(body, secret)."
+
+#: admin/views/builder.php:87
+msgid "You have unsaved changes."
+msgstr "Sie haben ungespeicherte Änderungen."
+
+#: admin/views/builder.php:87
+msgid "New question"
+msgstr "Neue Frage"
+
+#: admin/views/builder.php:104
+msgid "Loading the builder…"
+msgstr "Editor wird geladen …"
+
+#: admin/views/dashboard.php:23 includes/class-smlf-admin.php:31
+#: includes/class-smlf-admin.php:32
+msgid "Lead Forms"
+msgstr "Lead Forms"
+
+#: admin/views/dashboard.php:24 admin/views/forms.php:18
+msgid "New form"
+msgstr "Neues Formular"
+
+#: admin/views/dashboard.php:29
+msgid "New leads"
+msgstr "Neue Anfragen"
+
+#: admin/views/dashboard.php:32 admin/views/leads.php:43
+msgid "Follow-ups due"
+msgstr "Fällige Wiedervorlagen"
+
+#: admin/views/dashboard.php:35
+msgid "Unfinished (recoverable)"
+msgstr "Unvollständig (rückholbar)"
+
+#: admin/views/dashboard.php:38
+msgid "Leads this month"
+msgstr "Anfragen diesen Monat"
+
+#: admin/views/dashboard.php:45
+msgid "Conversion funnel"
+msgstr "Conversion-Funnel"
+
+#: admin/views/dashboard.php:55
+#, php-format
+msgid "Last %d days"
+msgstr "Letzte %d Tage"
+
+#: admin/views/dashboard.php:61
+msgid "Create a form to see its funnel."
+msgstr "Erstellen Sie ein Formular, um seinen Funnel zu sehen."
+
+#: admin/views/dashboard.php:65 admin/views/dashboard.php:118
+msgid "Seen"
+msgstr "Gesehen"
+
+#: admin/views/dashboard.php:65
+msgid "Started"
+msgstr "Begonnen"
+
+#: admin/views/dashboard.php:71 admin/views/dashboard.php:118
+msgid "Submitted"
+msgstr "Abgesendet"
+
+#: admin/views/dashboard.php:74
+msgid "Conversion (seen to submitted)"
+msgstr "Conversion (gesehen zu abgesendet)"
+
+#: admin/views/dashboard.php:75
+msgid "Start rate"
+msgstr "Startrate"
+
+#: admin/views/dashboard.php:76
+msgid "Completion of started forms"
+msgstr "Abschluss begonnener Formulare"
+
+#: admin/views/dashboard.php:102
+msgid "Views and submissions per day"
+msgstr "Aufrufe und Absendungen pro Tag"
+
+#: admin/views/dashboard.php:124
+msgid "Latest leads"
+msgstr "Neueste Anfragen"
+
+#: admin/views/dashboard.php:125
+msgid "All leads"
+msgstr "Alle Anfragen"
+
+#: admin/views/dashboard.php:128
+msgid "No leads yet. Put a form on a page with its shortcode."
+msgstr ""
+"Noch keine Anfragen. Binden Sie ein Formular mit seinem Shortcode auf einer "
+"Seite ein."
+
+#: admin/views/emails.php:15
+msgid "Sent"
+msgstr "Gesendet"
+
+#: admin/views/emails.php:16
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+#: admin/views/emails.php:17
+msgid "Not sent (abuse protection)"
+msgstr "Nicht gesendet (Missbrauchsschutz)"
+
+#: admin/views/emails.php:20 includes/class-smlf-admin.php:37
+msgid "E-mail log"
+msgstr "E-Mail-Protokoll"
+
+#: admin/views/emails.php:23
+msgid "No e-mails yet."
+msgstr "Noch keine E-Mails."
+
+#: admin/views/emails.php:26
+msgid "Recipient"
+msgstr "Empfänger"
+
+#: admin/views/emails.php:26
+msgid "Subject"
+msgstr "Betreff"
+
+#: admin/views/emails.php:26 admin/views/leads.php:92
+#: includes/class-smlf-admin.php:327
+msgid "Status"
+msgstr "Status"
+
+#: admin/views/emails.php:26
+msgid "Lead"
+msgstr "Anfrage"
+
+#: admin/views/forms.php:35 admin/views/forms.php:45 admin/views/leads.php:36
+#: includes/class-smlf-admin.php:34
+msgid "Leads"
+msgstr "Anfragen"
+
+#: admin/views/forms.php:36
+msgid "Seen (30 days)"
+msgstr "Gesehen (30 Tage)"
+
+#: admin/views/forms.php:37
+msgid "Conversion"
+msgstr "Conversion"
+
+#: admin/views/forms.php:41
+msgid "Copy"
+msgstr "Kopieren"
+
+#: admin/views/forms.php:44 includes/class-smlf-public.php:79
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: admin/views/forms.php:47
+msgid "Unpublish"
+msgstr "Zurückziehen"
+
+#: admin/views/forms.php:47
+msgid "Publish"
+msgstr "Veröffentlichen"
+
+#: admin/views/forms.php:49
+msgid "Delete this form together with all its leads and files?"
+msgstr "Dieses Formular mit allen Anfragen und Dateien löschen?"
+
+#: admin/views/forms.php:58
+msgid "Start a new form"
+msgstr "Neues Formular beginnen"
+
+#: admin/views/forms.php:69
+#, php-format
+msgid "%d step"
+msgid_plural "%d steps"
+msgstr[0] "%d Schritt"
+msgstr[1] "%d Schritte"
+
+#: admin/views/lead.php:18
+msgid "Back to the list"
+msgstr "Zurück zur Liste"
+
+#: admin/views/lead.php:21
+msgid "Lead not found."
+msgstr "Anfrage nicht gefunden."
+
+#: admin/views/lead.php:32 admin/views/leads.php:126
+msgid "unfinished"
+msgstr "unvollständig"
+
+#: admin/views/lead.php:34
+msgid "Call"
+msgstr "Anrufen"
+
+#: admin/views/lead.php:43
+msgid "Answers"
+msgstr "Antworten"
+
+#: admin/views/lead.php:90
+msgid "Other answers"
+msgstr "Weitere Antworten"
+
+#: admin/views/lead.php:98
+msgid "Files (version 1)"
+msgstr "Dateien (Version 1)"
+
+#: admin/views/lead.php:104
+msgid "Source"
+msgstr "Herkunft"
+
+#: admin/views/lead.php:106 admin/views/leads.php:94
+msgid "Received"
+msgstr "Eingegangen"
+
+#: admin/views/lead.php:107 admin/views/leads.php:41
+#: includes/class-smlf-admin.php:327
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+#: admin/views/lead.php:108 includes/class-smlf-admin.php:331
+msgid "Page"
+msgstr "Seite"
+
+#: admin/views/lead.php:109
+msgid "Came from"
+msgstr "Kam von"
+
+#: admin/views/lead.php:111
+msgid "Stopped at step"
+msgstr "Abgebrochen bei Schritt"
+
+#: admin/views/lead.php:112
+msgid "Device"
+msgstr "Gerät"
+
+#: admin/views/lead.php:119
+msgid "Status and follow-up"
+msgstr "Status und Wiedervorlage"
+
+#: admin/views/lead.php:131 admin/views/leads.php:93
+msgid "Follow-up"
+msgstr "Wiedervorlage"
+
+#: admin/views/lead.php:135
+msgid "Tomorrow 9:00"
+msgstr "Morgen 9:00"
+
+#: admin/views/lead.php:136
+msgid "In a week"
+msgstr "In einer Woche"
+
+#: admin/views/lead.php:137 includes/class-smlf-public.php:102
+msgid "Remove"
+msgstr "Entfernen"
+
+#: admin/views/lead.php:141
+msgid "New note"
+msgstr "Neue Notiz"
+
+#: admin/views/lead.php:142
+msgid "e.g. called, sending a quote tomorrow"
+msgstr "z. B. angerufen, Angebot folgt morgen"
+
+#: admin/views/lead.php:149
+msgid "History"
+msgstr "Verlauf"
+
+#: admin/views/lead.php:153
+msgid "System"
+msgstr "System"
+
+#: admin/views/lead.php:158
+msgid "Lead received"
+msgstr "Anfrage eingegangen"
+
+#: admin/views/lead.php:163
+msgid "Delete lead"
+msgstr "Anfrage löschen"
+
+#: admin/views/lead.php:163
+msgid "Delete this lead and its files permanently?"
+msgstr "Diese Anfrage und ihre Dateien endgültig löschen?"
+
+#: admin/views/leads.php:37
+msgid "Export CSV"
+msgstr "CSV exportieren"
+
+#: admin/views/leads.php:42
+msgid "Unfinished"
+msgstr "Unvollständig"
+
+#: admin/views/leads.php:44
+msgid "All"
+msgstr "Alle"
+
+#: admin/views/leads.php:51
+msgid "Search name, e-mail, phone, answers…"
+msgstr "Name, E-Mail, Telefon, Antworten suchen …"
+
+#: admin/views/leads.php:53
+msgid "All forms"
+msgstr "Alle Formulare"
+
+#: admin/views/leads.php:59
+msgid "All statuses"
+msgstr "Alle Status"
+
+#: admin/views/leads.php:64
+msgid "From"
+msgstr "Von"
+
+#: admin/views/leads.php:65
+msgid "To"
+msgstr "Bis"
+
+#: admin/views/leads.php:68
+#, php-format
+msgid "%d per page"
+msgstr "%d pro Seite"
+
+#: admin/views/leads.php:71
+msgid "Filter"
+msgstr "Filtern"
+
+#: admin/views/leads.php:73
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: admin/views/leads.php:85
+msgid "No leads match this filter."
+msgstr "Keine Anfragen passen zu diesem Filter."
+
+#: admin/views/leads.php:89
+msgid "Select all"
+msgstr "Alle auswählen"
+
+#: admin/views/leads.php:90
+msgid "Contact"
+msgstr "Kontakt"
+
+#: admin/views/leads.php:91
+msgid "Form / answers"
+msgstr "Formular / Antworten"
+
+#: admin/views/leads.php:127
+msgid "Files attached"
+msgstr "Dateien angehängt"
+
+#: admin/views/leads.php:134
+msgid "Open"
+msgstr "Öffnen"
+
+#: admin/views/leads.php:146
+msgid "Bulk action"
+msgstr "Mehrfachaktion"
+
+#: admin/views/leads.php:148
+#, php-format
+msgid "Status: %s"
+msgstr "Status: %s"
+
+#: admin/views/leads.php:150
+msgid "Delete (incl. files)"
+msgstr "Löschen (inkl. Dateien)"
+
+#: admin/views/leads.php:152
+msgid "Apply to the selected leads?"
+msgstr "Auf die ausgewählten Anfragen anwenden?"
+
+#: admin/views/leads.php:152
+msgid "Apply"
+msgstr "Anwenden"
+
+#: admin/views/leads.php:156
+#, php-format
+msgid "%d lead"
+msgid_plural "%d leads"
+msgstr[0] "%d Anfrage"
+msgstr[1] "%d Anfragen"
+
+#: admin/views/settings.php:26
+msgid "Notifications"
+msgstr "Benachrichtigungen"
+
+#: admin/views/settings.php:27
+msgid "Default recipient for new leads"
+msgstr "Standard-Empfänger für neue Anfragen"
+
+#: admin/views/settings.php:29
+msgid "Each form can have its own recipients (builder > Settings > E-mails)."
+msgstr ""
+"Jedes Formular kann eigene Empfänger haben (Editor > Einstellungen > "
+"E-Mails)."
+
+#: admin/views/settings.php:32
+msgid ""
+"Confirmations to visitors are sent by the \"KAS Contact Confirmation\" "
+"plugin (fixed text, shared limits for all forms of the site)."
+msgstr ""
+"Bestätigungen an Besucher versendet das Plugin „KAS Contact Confirmation“ "
+"(fester Text, gemeinsame Limits für alle Formulare der Website)."
+
+#: admin/views/settings.php:34
+msgid ""
+"Confirmations to visitors never contain what they typed and are limited (1 "
+"per address per day, 10 per hour, 40 per day) - the form cannot be misused "
+"to send spam."
+msgstr ""
+"Bestätigungen an Besucher enthalten nie deren Eingaben und sind begrenzt (1 "
+"pro Adresse und Tag, 10 pro Stunde, 40 pro Tag) – das Formular kann nicht "
+"zum Spamversand missbraucht werden."
+
+#: admin/views/settings.php:41
+msgid ""
+"Always on: invisible honeypot, minimum fill time, signed form stamp, rate "
+"limits per visitor and server-side validation of every answer."
+msgstr ""
+"Immer aktiv: unsichtbarer Honeypot, Mindest-Ausfüllzeit, signierter "
+"Formularstempel, Limits pro Besucher und serverseitige Prüfung jeder "
+"Antwort."
+
+#: admin/views/settings.php:42
+msgid "Captcha"
+msgstr "Captcha"
+
+#: admin/views/settings.php:45
+msgid "recommended, privacy-friendly"
+msgstr "empfohlen, datenschutzfreundlich"
+
+#: admin/views/settings.php:49
+msgid "Site key"
+msgstr "Site-Key"
+
+#: admin/views/settings.php:51
+msgid "Secret key"
+msgstr "Secret-Key"
+
+#: admin/views/settings.php:52
+msgid "saved - leave empty to keep"
+msgstr "gespeichert – leer lassen, um ihn zu behalten"
+
+#: admin/views/settings.php:54
+msgid "The captcha is not active until both keys are saved."
+msgstr "Das Captcha ist erst aktiv, wenn beide Schlüssel gespeichert sind."
+
+#: admin/views/settings.php:59
+msgid "Unfinished forms and privacy"
+msgstr "Unvollständige Formulare und Datenschutz"
+
+#: admin/views/settings.php:60
+msgid ""
+"Save unfinished forms as leads once the visitor entered an e-mail address or"
+" phone number (to call back abandoned requests)"
+msgstr ""
+"Unvollständige Formulare als Anfrage speichern, sobald eine E-Mail-Adresse "
+"oder Telefonnummer eingegeben wurde (um abgebrochene Anfragen zurückzurufen)"
+
+#: admin/views/settings.php:61
+msgid "Delete unfinished leads after"
+msgstr "Unvollständige Anfragen löschen nach"
+
+#: admin/views/settings.php:62
+msgid "days (0 = never)"
+msgstr "Tagen (0 = nie)"
+
+#: admin/views/settings.php:63
+msgid "Delete all leads after"
+msgstr "Alle Anfragen löschen nach"
+
+#: admin/views/settings.php:64
+msgid "months (0 = keep)"
+msgstr "Monaten (0 = behalten)"
+
+#: admin/views/settings.php:65
+msgid ""
+"IP addresses are stored shortened. Funnel statistics contain only counts, no"
+" personal data."
+msgstr ""
+"IP-Adressen werden gekürzt gespeichert. Funnel-Statistiken enthalten nur "
+"Zählwerte, keine personenbezogenen Daten."
+
+#: admin/views/settings.php:69
+msgid "File uploads"
+msgstr "Datei-Uploads"
+
+#: admin/views/settings.php:70
+msgid "Maximum size per file"
+msgstr "Maximale Größe pro Datei"
+
+#: admin/views/settings.php:72
+msgid "Maximum files per submission"
+msgstr "Maximale Dateien pro Anfrage"
+
+#: admin/views/settings.php:74
+msgid "Allowed file types"
+msgstr "Erlaubte Dateitypen"
+
+#: admin/views/settings.php:76
+msgid ""
+"Files are stored in a private folder and can only be downloaded by "
+"administrators. Scripts are never allowed."
+msgstr ""
+"Dateien liegen in einem privaten Ordner und können nur von Administratoren "
+"heruntergeladen werden. Skripte sind nie erlaubt."
+
+#: admin/views/settings.php:80
+msgid "Lead statuses"
+msgstr "Anfrage-Status"
+
+#: admin/views/settings.php:82
+msgid "One per line: key:Label. The first one is given to new leads."
+msgstr ""
+"Einer pro Zeile: schluessel:Bezeichnung. Neue Anfragen erhalten den ersten."
+
+#: admin/views/settings.php:86
+msgid "Uninstall"
+msgstr "Deinstallation"
+
+#: admin/views/settings.php:87
+msgid "Keep forms and leads when the plugin is deleted"
+msgstr "Formulare und Anfragen beim Löschen des Plugins behalten"
+
+#: admin/views/settings.php:88
+msgid "Delete everything (forms, leads, files, statistics)"
+msgstr "Alles löschen (Formulare, Anfragen, Dateien, Statistiken)"
+
+#: admin/views/settings.php:91
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+#: includes/class-smlf-admin.php:33
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: includes/class-smlf-admin.php:38 includes/class-smlf-admin.php:41
+msgid "Form builder"
+msgstr "Formular-Editor"
+
+#: includes/class-smlf-admin.php:68
+msgid "Please confirm"
+msgstr "Bitte bestätigen"
+
+#: includes/class-smlf-admin.php:69
+msgid "Yes, continue"
+msgstr "Ja, fortfahren"
+
+#: includes/class-smlf-admin.php:70
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: includes/class-smlf-admin.php:71
+msgid "Copied"
+msgstr "Kopiert"
+
+#: includes/class-smlf-admin.php:104
+msgid "Developed by"
+msgstr "Entwickelt von"
+
+#: includes/class-smlf-admin.php:123
+msgid "Saved."
+msgstr "Gespeichert."
+
+#: includes/class-smlf-admin.php:124
+#, php-format
+msgid "%d item(s) deleted."
+msgstr "%d Eintrag/Einträge gelöscht."
+
+#: includes/class-smlf-admin.php:125
+#, php-format
+msgid "%d lead(s) updated."
+msgstr "%d Anfrage(n) aktualisiert."
+
+#: includes/class-smlf-admin.php:126
+msgid "Form duplicated."
+msgstr "Formular dupliziert."
+
+#: includes/class-smlf-admin.php:127
+msgid "Nothing selected."
+msgstr "Nichts ausgewählt."
+
+#: includes/class-smlf-admin.php:128
+msgid "Invalid follow-up date."
+msgstr "Ungültiges Wiedervorlage-Datum."
+
+#: includes/class-smlf-admin.php:129
+msgid "That did not work."
+msgstr "Das hat nicht funktioniert."
+
+#: includes/class-smlf-admin.php:143 includes/class-smlf-admin.php:169
+#: includes/class-smlf-admin.php:307 includes/class-smlf-uploads.php:120
+msgid "Not allowed."
+msgstr "Nicht erlaubt."
+
+#: includes/class-smlf-admin.php:147
+msgid "Invalid data."
+msgstr "Ungültige Daten."
+
+#: includes/class-smlf-admin.php:190
+#, php-format
+msgid "%s (copy)"
+msgstr "%s (Kopie)"
+
+#: includes/class-smlf-admin.php:327
 msgid "Form"
 msgstr "Formular"
 
-msgid "Export filtered CSV"
-msgstr "Gefilterte CSV exportieren"
+#: includes/class-smlf-admin.php:327
+msgid "Name"
+msgstr "Name"
 
-msgid "View Details"
-msgstr "Details anzeigen"
+#: includes/class-smlf-admin.php:331
+msgid "Created"
+msgstr "Erstellt"
 
-msgid "Your submission could not be accepted."
-msgstr "Ihre Übermittlung konnte nicht angenommen werden."
+#: includes/class-smlf-admin.php:378
+#, php-format
+msgid "%s ago"
+msgstr "vor %s"
 
-msgid "Please take a moment before submitting the form."
-msgstr "Bitte warten Sie einen Moment, bevor Sie das Formular absenden."
+#: includes/class-smlf-forms.php:50
+msgid "Untitled form"
+msgstr "Unbenanntes Formular"
+
+#: includes/class-smlf-leads.php:32
+msgid "New"
+msgstr "Neu"
+
+#: includes/class-smlf-leads.php:166
+#, php-format
+msgid "Follow-up: %s"
+msgstr "Wiedervorlage: %s"
+
+#: includes/class-smlf-leads.php:271
+msgid "Yes"
+msgstr "Ja"
+
+#: includes/class-smlf-leads.php:271
+msgid "No"
+msgstr "Nein"
+
+#: includes/class-smlf-mailer.php:52
+#, php-format
+msgid "New lead #%1$d - %2$s"
+msgstr "Neue Anfrage #%1$d – %2$s"
+
+#: includes/class-smlf-mailer.php:71
+#, php-format
+msgid "%d file (download in the lead view)"
+msgid_plural "%d files (download in the lead view)"
+msgstr[0] "%d Datei (Download in der Anfrage-Ansicht)"
+msgstr[1] "%d Dateien (Download in der Anfrage-Ansicht)"
+
+#: includes/class-smlf-mailer.php:86
+#, php-format
+msgid "New lead #%d"
+msgstr "Neue Anfrage #%d"
+
+#: includes/class-smlf-mailer.php:89
+msgid "Open lead"
+msgstr "Anfrage öffnen"
+
+#: includes/class-smlf-mailer.php:110
+msgid "Confirmation (KAS Contact Confirmation)"
+msgstr "Bestätigung (KAS Contact Confirmation)"
+
+#: includes/class-smlf-mailer.php:116
+msgid "We have received your request - {site_name}"
+msgstr "Wir haben Ihre Anfrage erhalten – {site_name}"
+
+#: includes/class-smlf-mailer.php:121
+msgid ""
+"Hello,\n"
+"\n"
+"thank you for your request. We have received it and will get back to you as soon as possible.\n"
+"\n"
+"Kind regards\n"
+"{site_name}"
+msgstr ""
+"Guten Tag,\n"
+"\n"
+"vielen Dank für Ihre Anfrage. Wir haben sie erhalten und melden uns so schnell wie möglich bei Ihnen.\n"
+"\n"
+"Mit freundlichen Grüßen\n"
+"{site_name}"
+
+#: includes/class-smlf-mailer.php:123
+msgid ""
+"You did not send this request? Then someone entered your address in our form"
+" - you do not need to do anything."
+msgstr ""
+"Sie haben diese Anfrage nicht gesendet? Dann hat jemand Ihre Adresse in "
+"unser Formular eingetragen – Sie müssen nichts tun."
+
+#: includes/class-smlf-public.php:29
+msgid "Lead form not found or not published."
+msgstr "Formular nicht gefunden oder nicht veröffentlicht."
+
+#: includes/class-smlf-public.php:48
+msgid "Please enable JavaScript to use this form."
+msgstr "Bitte aktivieren Sie JavaScript, um dieses Formular zu nutzen."
+
+#: includes/class-smlf-public.php:75
+msgid "Next"
+msgstr "Weiter"
+
+#: includes/class-smlf-public.php:76
+msgid "Back"
+msgstr "Zurück"
+
+#: includes/class-smlf-public.php:77
+msgid "Send request"
+msgstr "Anfrage senden"
+
+#: includes/class-smlf-public.php:78
+msgid "Check your answers"
+msgstr "Bitte prüfen Sie Ihre Angaben"
+
+#: includes/class-smlf-public.php:80 includes/class-smlf-submit.php:178
+msgid "This field is required."
+msgstr "Dieses Feld ist erforderlich."
+
+#: includes/class-smlf-public.php:81 includes/class-smlf-submit.php:178
+msgid "Please confirm."
+msgstr "Bitte bestätigen Sie."
+
+#: includes/class-smlf-public.php:82 includes/class-smlf-submit.php:217
+msgid "Please enter a valid e-mail address."
+msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+
+#: includes/class-smlf-public.php:83 includes/class-smlf-submit.php:223
+msgid "Please enter a valid phone number."
+msgstr "Bitte geben Sie eine gültige Telefonnummer ein."
+
+#: includes/class-smlf-public.php:84 includes/class-smlf-submit.php:231
+msgid "Please enter a number."
+msgstr "Bitte geben Sie eine Zahl ein."
+
+#: includes/class-smlf-public.php:85 includes/class-smlf-submit.php:241
+msgid "Please enter a valid web address."
+msgstr "Bitte geben Sie eine gültige Webadresse ein."
+
+#: includes/class-smlf-public.php:86
+msgid "Please choose"
+msgstr "Bitte wählen"
+
+#: includes/class-smlf-public.php:87
+#, php-format
+msgid "Step %1$d of %2$d"
+msgstr "Schritt %1$d von %2$d"
+
+#: includes/class-smlf-public.php:88
+msgid "Sending..."
+msgstr "Wird gesendet …"
+
+#: includes/class-smlf-public.php:89
+msgid "Something went wrong. Please try again."
+msgstr "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+
+#: includes/class-smlf-public.php:90
+msgid "Welcome back! Continue where you left off?"
+msgstr "Willkommen zurück! Dort weitermachen, wo Sie aufgehört haben?"
+
+#: includes/class-smlf-public.php:91
+msgid "Continue"
+msgstr "Weitermachen"
+
+#: includes/class-smlf-public.php:92 includes/class-smlf-public.php:93
+msgid "Start over"
+msgstr "Neu starten"
+
+#: includes/class-smlf-public.php:94
+msgid "Choose files or drop them here"
+msgstr "Dateien auswählen oder hier ablegen"
+
+#: includes/class-smlf-public.php:95 includes/class-smlf-uploads.php:77
+#, php-format
+msgid "Files may be at most %d MB."
+msgstr "Dateien dürfen höchstens %d MB groß sein."
+
+#: includes/class-smlf-public.php:96 includes/class-smlf-uploads.php:63
+#, php-format
+msgid "Please upload at most %d files."
+msgstr "Bitte laden Sie höchstens %d Dateien hoch."
+
+#: includes/class-smlf-public.php:97
+msgid "Street and number"
+msgstr "Straße und Hausnummer"
+
+#: includes/class-smlf-public.php:98
+msgid "Postcode"
+msgstr "PLZ"
+
+#: includes/class-smlf-public.php:99
+msgid "City"
+msgstr "Ort"
+
+#: includes/class-smlf-public.php:100
+msgid "optional"
+msgstr "optional"
+
+#: includes/class-smlf-public.php:101
+#, php-format
+msgid "%d of %d stars"
+msgstr "%d von %d Sternen"
+
+#: includes/class-smlf-public.php:103 includes/class-smlf-security.php:73
+msgid "Please confirm that you are not a robot."
+msgstr "Bitte bestätigen Sie, dass Sie kein Roboter sind."
+
+#: includes/class-smlf-public.php:104
+msgid "Preview - nothing is sent."
+msgstr "Vorschau – es wird nichts gesendet."
+
+#: includes/class-smlf-security.php:39 includes/class-smlf-security.php:43
+msgid "Please reload the page and try again."
+msgstr "Bitte laden Sie die Seite neu und versuchen Sie es erneut."
+
+#: includes/class-smlf-security.php:47
+msgid "That was a bit too fast. Please try again."
+msgstr "Das ging etwas zu schnell. Bitte versuchen Sie es erneut."
+
+#: includes/class-smlf-security.php:50
+msgid "This page was open for a long time. Please reload it and try again."
+msgstr ""
+"Diese Seite war lange geöffnet. Bitte laden Sie sie neu und versuchen Sie es"
+" erneut."
+
+#: includes/class-smlf-submit.php:29
+msgid "This form is not available."
+msgstr "Dieses Formular ist nicht verfügbar."
+
+#: includes/class-smlf-submit.php:91
+msgid "Too many submissions. Please wait a few minutes."
+msgstr "Zu viele Anfragen. Bitte warten Sie einige Minuten."
+
+#: includes/class-smlf-submit.php:110
+msgid "This form cannot be submitted with these answers."
+msgstr "Mit diesen Antworten kann das Formular nicht gesendet werden."
+
+#: includes/class-smlf-submit.php:113 includes/class-smlf-submit.php:123
+msgid "Please check the highlighted fields."
+msgstr "Bitte prüfen Sie die markierten Felder."
+
+#: includes/class-smlf-submit.php:123
+msgid "Please add a file."
+msgstr "Bitte fügen Sie eine Datei hinzu."
+
+#: includes/class-smlf-submit.php:138
+msgid "Thank you!"
+msgstr "Vielen Dank!"
+
+#: includes/class-smlf-submit.php:139
+msgid "We have received your request and will get back to you soon."
+msgstr "Wir haben Ihre Anfrage erhalten und melden uns in Kürze."
+
+#. translators: 1: minimum, 2: maximum
+#: includes/class-smlf-submit.php:234
+#, php-format
+msgid "Please enter a value between %1$s and %2$s."
+msgstr "Bitte geben Sie einen Wert zwischen %1$s und %2$s ein."
+
+#: includes/class-smlf-submit.php:248
+msgid "Please enter a valid date."
+msgstr "Bitte geben Sie ein gültiges Datum ein."
+
+#: includes/class-smlf-submit.php:258
+msgid "Please choose one of the options."
+msgstr "Bitte wählen Sie eine der Optionen."
+
+#: includes/class-smlf-submit.php:265
+msgid "Please choose a rating."
+msgstr "Bitte wählen Sie eine Bewertung."
+
+#: includes/class-smlf-submit.php:278
+msgid "Please enter postcode and city."
+msgstr "Bitte geben Sie PLZ und Ort ein."
+
+#: includes/class-smlf-uploads.php:74 includes/class-smlf-uploads.php:93
+msgid "A file could not be uploaded."
+msgstr "Eine Datei konnte nicht hochgeladen werden."
+
+#. translators: %s: list of file extensions
+#: includes/class-smlf-uploads.php:83
+#, php-format
+msgid "File type not allowed. Allowed: %s"
+msgstr "Dateityp nicht erlaubt. Erlaubt: %s"
+
+#: includes/class-smlf-uploads.php:128
+msgid "File not found."
+msgstr "Datei nicht gefunden."

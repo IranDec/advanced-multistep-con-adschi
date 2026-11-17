@@ -1,80 +1,69 @@
 === Smart MultiStep Lead Forms ===
 Contributors: mohammadbabaei
-Tags: forms, multistep, ajax, leads, drag and drop
-Requires at least: 5.9
+Tags: multistep form, lead form, conditional logic, crm, form builder
+Requires at least: 6.0
 Requires PHP: 7.4
-Tested up to: 6.9.1
-Stable tag: 1.3.4
+Tested up to: 6.9
+Stable tag: 2.0.0
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A visual multi-step lead form builder for WordPress with AJAX submission, partial lead saving, captcha options, webhooks, email notifications, and CSV export.
+Visual multi-step lead forms with conditional logic, a lead CRM, partial-lead recovery, a conversion funnel, signed webhooks and abuse-safe e-mails.
 
 == Description ==
 
-Smart MultiStep Lead Forms lets site owners create shortcode-based, multi-step lead forms from the WordPress admin area. Forms can be embedded with `[smlf_form id="123"]`, submitted without a page reload, and saved as partial leads when important fields are entered.
+Build multi-step request forms in a visual editor and manage the requests in a small CRM inside WordPress. Embed a form anywhere with `[smlf_form id="123"]`.
 
-Features:
-* Unlimited shortcode forms and steps.
-* Drag-and-drop form builder with edit support.
-* Field-level layout controls for full, half, and one-third width fields.
-* Choice fields can be displayed as tap cards, dropdowns, or list-style options.
-* Consent checkbox block with configurable privacy links and popup content.
-* Per-form appearance controls for theme, font family, and key colors.
-* Text, email, phone, long text, message, card, radio, and drag-and-drop file upload fields.
-* Ready-made localized templates that can be loaded manually from the form builder.
-* Template language selector for multilingual sites.
-* HVAC 3D sample template for heating and cooling companies.
-* Multi-rule conditional step logic.
-* Lead pipeline status tracking in the admin area.
-* Colored Prospects overview cards for request totals and daily activity.
-* File upload preview with per-file removal before submit.
-* Modern animated frontend theme with lightweight 3D card interactions.
-* Required/email validation in the browser and sanitized server-side processing.
-* Partial lead auto-save when enabled.
-* AJAX final submission with server-side captcha verification.
-* Captcha options: none, custom checkbox, Google reCAPTCHA v2/v3, and Cloudflare Turnstile.
-* Admin and user email notifications with email logs.
-* Configurable branded email templates with automatic site logo support.
-* Webhook delivery for partial and completed leads.
-* CSV export for leads with nonce and capability checks.
-* RTL and translation-file support.
-* Developed by Mohammad Babaei (https://adschi.com)
+= Builder =
+* Three-column editor with live canvas, drag and drop between steps, duplicate, Ctrl+S and a desktop/mobile preview.
+* Conditional fields ("show only if", all/any, 8 operators) and step jumps; dead-end steps with a "start over" button.
+* 15 field types: text, long text, e-mail, phone, number, website, date, choice (cards with icon or image, buttons, list, dropdown), slider, rating, address, file upload, consent, text block, hidden (UTM, URL parameter, page URL, referrer, fixed value).
+* Ready-made templates: HVAC consultation, contact, feedback, blank.
+
+= Frontend =
+* Lightweight, no jQuery, keyboard and screen-reader friendly, RTL aware.
+* Progress bar or step dots, auto-advance, review page, "continue where you left off".
+* Themes: light, dark, glass, minimal - with your own colours, radius, width and font.
+
+= Leads =
+* Dashboard with KPIs, conversion funnel and daily chart.
+* Leads list with search, filters, bulk actions and CSV export.
+* Lead detail with answers per step, editable status pipeline, follow-up dates, notes and history.
+* Unfinished requests are saved once an e-mail address or phone number was entered, and completed in place later.
+
+= Security and privacy =
+* Signed form stamp with minimum fill time, honeypot, rate limits, optional Turnstile / reCAPTCHA v2 / v3.
+* Every answer is validated on the server against the form definition, including the path through the steps.
+* Uploads are checked by real file type and stored privately (admin-only download).
+* Visitor confirmations use a fixed text and strict limits, so the form cannot be misused to send spam.
+* Shortened IP addresses, automatic clean-up, signed webhooks.
 
 == Installation ==
 
-1. Upload the plugin files to `/wp-content/plugins/smart-multistep-lead-forms`, or install the plugin through the WordPress plugins screen.
-2. Activate the plugin through the Plugins screen in WordPress.
-3. Open Smart Forms, create a form, and copy its shortcode.
-4. Add the shortcode to a page or post, for example: `[smlf_form id="123"]`.
-
-== Settings ==
-
-* Admin Notification Email: address that receives completed lead notifications.
-* Email Templates: customize admin/customer email subjects, intro text, footer text, and placeholders.
-* Enable Partial Lead Saving: saves started/partial leads before final submit.
-* Webhook URL: receives JSON payloads for `smlf_lead_partial` and `smlf_lead_completed`.
-* Anti-bot / Captcha Method: choose none, custom checkbox, reCAPTCHA v2/v3, or Turnstile.
-* Captcha Site Key and Secret Key: required for third-party captcha providers.
-* Upload Limits: configure allowed file extensions, maximum file count, and maximum file size globally.
-* Data on Uninstall: choose whether plugin tables and options should remain or be fully deleted when the plugin is uninstalled.
-
-Webhook payload example:
-
-`{"event":"smlf_lead_completed","lead_id":10,"form_id":3,"data":{"smlf_field_email":"person@example.com"}}`
+1. Upload the `smart-multistep-lead-forms` folder to `/wp-content/plugins/`.
+2. Activate the plugin.
+3. Go to Lead Forms > Forms, start from a template and adjust it in the builder.
+4. Add the shortcode `[smlf_form id="123"]` to a page.
 
 == Frequently Asked Questions ==
 
-= How do I embed a form? =
-Use the shortcode shown in Smart Forms, such as `[smlf_form id="123"]`.
+= Does the update from 1.x keep my forms and leads? =
+Yes. Forms are converted automatically (old step logic becomes jumps) and leads keep their answers, files and notes. Shortcodes stay the same. Please take a backup first.
 
-= Does it support RTL? =
-Yes, the plugin loads RTL styles when WordPress is running in RTL mode.
+= Where are uploaded files stored? =
+In `wp-content/uploads/smlf-private/` with random names, protected against direct access. Administrators download them from the lead view.
 
-= Does CSV export require admin access? =
-Yes. CSV export requires `manage_options` and a valid export nonce.
+= Can visitors abuse the confirmation e-mail? =
+No. The confirmation never contains what the visitor typed, is skipped for spam-like input and is limited per address, per hour and per day.
+
+= How do I verify webhooks? =
+Compare `hash_hmac( 'sha256', $raw_body, $secret )` with the value after `sha256=` in the `X-SMLF-Signature` header.
 
 == Changelog ==
+
+= 2.0.0 =
+* Complete rewrite: new builder, conditional logic engine, frontend, lead CRM, funnel analytics, signed webhooks, private uploads and abuse-safe e-mails. Automatic migration from 1.x.
+
 
 = 1.3.4 =
 * Added colored Prospects overview cards for total requests, completed requests, auto-saved requests, and new requests today.
