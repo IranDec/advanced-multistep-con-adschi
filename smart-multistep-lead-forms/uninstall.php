@@ -1,6 +1,6 @@
 <?php
 /**
- * Uninstall cleanup for Smart MultiStep Lead Forms.
+ * Uninstall: removes data only when "Delete everything" was chosen in the settings.
  *
  * @package Smart_Multistep_Lead_Forms
  */
@@ -9,44 +9,25 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-$action = get_option( 'smlf_uninstall_data_action', 'keep' );
+wp_clear_scheduled_hook( 'smlf_daily' );
 
-if ( 'delete' !== $action ) {
+if ( 'delete' !== get_option( 'smlf_uninstall_data_action', 'keep' ) ) {
 	return;
 }
 
 global $wpdb;
-
-$tables = array(
-	$wpdb->prefix . 'smlf_email_logs',
-	$wpdb->prefix . 'smlf_leads',
-	$wpdb->prefix . 'smlf_forms',
-);
-
-foreach ( $tables as $table ) {
-	$wpdb->query( "DROP TABLE IF EXISTS {$table}" );
+foreach ( array( 'smlf_forms', 'smlf_leads', 'smlf_lead_notes', 'smlf_stats', 'smlf_email_logs' ) as $table ) {
+	$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}{$table}" ); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 }
+$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE 'smlf\\_%' OR option_name LIKE '\\_transient%smlf\\_%'" );
 
-$options = array(
-	'smlf_admin_email',
-	'smlf_email_admin_subject',
-	'smlf_email_admin_intro',
-	'smlf_email_user_subject',
-	'smlf_email_user_intro',
-	'smlf_email_footer_text',
-	'smlf_enable_partial',
-	'smlf_webhook_url',
-	'smlf_captcha_method',
-	'smlf_captcha_site_key',
-	'smlf_captcha_secret_key',
-	'smlf_allowed_file_extensions',
-	'smlf_max_file_count',
-	'smlf_max_file_size_mb',
-	'smlf_uninstall_data_action',
-	'smlf_last_viewed_lead_id',
-	'smlf_version',
-);
-
-foreach ( $options as $option ) {
-	delete_option( $option );
+// Private upload folder.
+$up  = wp_get_upload_dir();
+$dir = trailingslashit( $up['basedir'] ) . 'smlf-private';
+if ( is_dir( $dir ) ) {
+	$it = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $dir, FilesystemIterator::SKIP_DOTS ), RecursiveIteratorIterator::CHILD_FIRST );
+	foreach ( $it as $file ) {
+		$file->isDir() ? @rmdir( $file->getPathname() ) : @unlink( $file->getPathname() );
+	}
+	@rmdir( $dir );
 }

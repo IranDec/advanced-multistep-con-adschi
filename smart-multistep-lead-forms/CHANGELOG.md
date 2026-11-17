@@ -1,6 +1,37 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.0.0] - 2026-11-17
+Complete rewrite. Data from 1.x is migrated automatically; shortcodes stay the same.
+
+### Added
+- New three-column form builder: live canvas, inspector, drag and drop between steps, duplicate, Ctrl+S, unsaved-changes guard, desktop/mobile preview.
+- Conditional logic engine shared by PHP and JavaScript: "show this field only if" (all/any, 8 operators) and per-step jumps; dead-end steps with "start over".
+- New field types: number, website, date, slider, star rating, address, consent, text block and hidden (UTM, URL parameter, page URL, referrer, fixed value); choice fields as cards with icon or image, buttons, list or dropdown, single or multiple.
+- New frontend renderer without jQuery: four themes (light, dark, glass, minimal), progress bar or step dots, auto-advance, review page, "continue where you left off", accessible error messages.
+- Lead CRM: dashboard with KPIs and conversion funnel, leads list with search, filters, bulk actions and formula-safe CSV export, lead detail with status pipeline, follow-up dates, notes and history.
+- Funnel statistics (seen, started, each step, submitted) per form and day, without personal data.
+- Signed webhooks (`X-SMLF-Signature`) for completed and optionally unfinished leads.
+- Form templates: HVAC consultation, contact, feedback, blank (English/German).
+- Complete German translation; new `.pot` file.
+
+### Changed
+- Unfinished leads are stored only once an e-mail address or phone number was entered and are completed in place via a secret token.
+- Confirmation e-mails to visitors use a fixed text (no visitor input), are skipped for spam-like input and limited (1 per address per day, 10 per hour, 40 per day); the KAS Contact Confirmation plugin is used when present.
+- Team e-mail is a clean HTML table grouped by step with Reply-To and a link to the lead.
+
+### Security
+- Signed render stamp with minimum fill time, honeypot, per-IP rate limits, captcha fails closed.
+- Server-side validation of every answer and of the path through the steps; values of skipped steps are dropped.
+- Uploads checked by real file type and stored in a private folder with admin-only download.
+- Webhook requests use `wp_safe_remote_post`; nonces and capability checks on every admin action; IP addresses stored shortened.
+
+### Removed
+- jQuery-based 1.x admin and frontend code, the custom checkbox captcha and editable confirmation texts with visitor placeholders.
+
+### Notes
+- The Persian translation only covers strings carried over from 1.x; the rest falls back to English.
+
 ## [1.3.4] - 2026-04-29
 ### Added
 - Colored Prospects overview cards for total requests, completed requests, auto-saved requests, and new requests today.
